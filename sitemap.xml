@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://www.davidhouchin.com/posts/</loc>
+    <lastmod>2020-02-07T22:10:32-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.davidhouchin.com/resume/</loc>
+    <lastmod>2020-02-08T13:31:09-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.davidhouchin.com/about/</loc>
+    <lastmod>2020-02-08T13:31:09-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.davidhouchin.com/</loc>
+    <lastmod>2020-02-08T13:31:09-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.davidhouchin.com/posts/new-site/</loc>
+    <lastmod>2020-02-07T22:10:32-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.davidhouchin.com/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://www.davidhouchin.com/tags/</loc>
+  </url>
+  
+</urlset>

@@ -1,0 +1,41 @@
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+ <channel>
+   <title>Tags on David Houchin</title>
+   <link>http://www.davidhouchin.com/tags/</link>
+   <description>Recent content in Tags on David Houchin</description>
+   <generator>Hugo -- gohugo.io</generator>
+   <language>en-us</language>
+   <copyright>Copyright &amp;copy; 2020 David Houchin</copyright>
+   
+       <atom:link href="http://www.davidhouchin.com/tags/index.xml" rel="self" type="application/rss+xml" />
+   
+   
+     <item>
+       <title>New Site</title>
+       <link>http://www.davidhouchin.com/posts/new-site/</link>
+       <pubDate>Fri, 07 Feb 2020 22:10:32 -0800</pubDate>
+       
+       <guid>http://www.davidhouchin.com/posts/new-site/</guid>
+       <description>&lt;p&gt;Welcome to my new site. I&amp;rsquo;ve decided for a while that I should probably move away from WordPress and server-side websites for a while. Moreso for ease-of-hosting and my sanity than anything else. I also decided that I should distill the site a little more to my hobbies only.&lt;/p&gt;
+
+&lt;p&gt;I created this with &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;, mainly because it seemed very fast (it is) and is written in Go. I haven&amp;rsquo;t been disappointed so far. I&amp;rsquo;m using a hacked up copy of the &lt;a href=&#34;https://github.com/funkydan2/hugo-kiera&#34;&gt;Kiera&lt;/a&gt; theme, which I will try to clean up as I have more time.&lt;/p&gt;
+
+&lt;p&gt;I &lt;em&gt;am&lt;/em&gt; going to move the posts that I created regarding some of my work on pinball machines to this site in the near future, as they have been helpful to several people and I want to make sure that knowledge is still available.&lt;/p&gt;
+
+&lt;p&gt;I haven&amp;rsquo;t tackled comments or contact yet. Spam was an absolute nightmare on my WP site, and several legitimate comments were lost or took forever to approve (Partially my fault for not taking the time to really understand Akismet). I will try to figure out a solution here, perhaps embedded Disqus or similar. At the very least, I want there to be the capacity to contact me without absurd spam, because I love answering any questions people may have.&lt;/p&gt;
+
+&lt;p&gt;Lastly, I have several projects in the work, and I&amp;rsquo;m excited to write about them soon. Just a few:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Work on new (and existing) pinball machines.. Twilight Zone, Doctor Who, NBA Fastbreak, Guns N Roses, and Space Shuttle.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Work on pinball emulation. New projects coming out, as well as getting things running under Linux.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;New programming ventures. I&amp;rsquo;ve been playing with Go and Docker, and enjoying it.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+     </item>
+   
+ </channel>
+</rss>
