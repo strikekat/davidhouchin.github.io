@@ -13,7 +13,7 @@ h4,
 h5,
 h6,
 time {
-  font-family: "Arvo", serif;
+  font-family: "Roboto Slab", serif;
 }
 
 #container {
@@ -57,8 +57,12 @@ time {
   float: right;
 }
 
+#container header nav {
+  float: left;
+}
+
 #container header ul li {
-  margin-left: 1em;
+  margin-right: 1em;
 }
 
 @media only screen and (max-width: 1100px) {
@@ -71,7 +75,6 @@ time {
 }
 
 #container nav {
-  border-bottom: solid 3px #cecece;
   padding-bottom: 0.5em;
   font-family: "Arvo", serif;
 }
@@ -82,10 +85,6 @@ time {
   list-style: none;
   display: flex;
   justify-content: flex-end;
-}
-
-#container nav ul li {
-  margin-left: 1em;
 }
 
 #container nav ul li a.active {
@@ -184,10 +183,6 @@ time {
   margin-bottom: 1rem;
 }
 
-#container footer {
-  border-top: solid 1px #cecece;
-}
-
 #container footer h6 {
   font-size: 0.8em;
 }
@@ -261,6 +256,10 @@ a {
   text-decoration: none;
 }
 
+article a {
+  text-decoration: underline;
+}
+
 .image, figure img, img {
   width: 100%;
   box-shadow: 0 3px 3px #bbbbbb;
@@ -289,7 +288,7 @@ a {
 
 @supports (width: 100vw) {
   .mid-image, figure.mid img, img[src*="mid"] {
-    width: 1100px;
+    width: 800px;
     position: relative;
     left: 50%;
     right: 50%;
@@ -418,4 +417,9 @@ ul.pagination {
 
 ul.pagination li {
   padding: 0 1em;
+}
+
+#theme-toggle {
+  float: right;
+  cursor: pointer;
 }

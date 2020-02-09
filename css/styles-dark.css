@@ -419,3 +419,8 @@ ul.pagination {
 ul.pagination li {
   padding: 0 1em;
 }
+
+#theme-toggle {
+  float: right;
+  cursor: pointer;
+}
