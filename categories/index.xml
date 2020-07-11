@@ -12,27 +12,761 @@
    
    
      <item>
+       <title>Old Posts Re-Uploaded</title>
+       <link>http://www.davidhouchin.com/posts/old-posts-added/</link>
+       <pubDate>Sat, 11 Jul 2020 16:28:08 -0700</pubDate>
+       
+       <guid>http://www.davidhouchin.com/posts/old-posts-added/</guid>
+       <description>&lt;p&gt;I finally got the old posts from my old Wordpress site re-uploaded here. There&amp;rsquo;s some technical data that I didn&amp;rsquo;t want to see lost (Although I believe Wayback Machine still archived everything).&lt;/p&gt;
+&lt;p&gt;This was much more tricky than I thought. I backed up the entire site with &lt;a href=&#34;https://wordpress.org/plugins/updraftplus/&#34;&gt;UpdraftPlus&lt;/a&gt;.&lt;br&gt;
+However, while everything was backed up in some way or another, the actual textual content was saved as a MySQL dump, escape characters and all.&lt;/p&gt;
+&lt;p&gt;I had to find the most recent version of each post in the SQL, copy it all out, remove the extra tags and escape characters, re-format it all for Markdown, and re-insert pictures and links. Tedious to say the least.&lt;/p&gt;
+&lt;p&gt;Thankfully, Hugo still proves to be a great tool. It&amp;rsquo;s very easy to build out new pages, and to modify the theme just how I like it. Minor tweaks to styling can be prototyped and finished very quickly. For others making the jump from platform to platform, I hope it proves a simpler process than mine, especially considering mine was only 4 posts..&lt;/p&gt;
+&lt;p&gt;If you read this during the COVID pandemic, I hope things find you well and you are staying safe. I&amp;rsquo;ve been very busy with work, but have been playing around with a few projects here and there. I&amp;rsquo;ve been checking out some board/tabletop games. Such a fascinating world, I had no idea!&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>Fixing Gauntlet in MAME</title>
+       <link>http://www.davidhouchin.com/posts/gauntlet/</link>
+       <pubDate>Fri, 10 Jul 2020 13:00:00 -0700</pubDate>
+       
+       <guid>http://www.davidhouchin.com/posts/gauntlet/</guid>
+       <description>&lt;p&gt;&lt;em&gt;This is a repost of an article from my old site originally posted in 2017, in the hopes that the information within still proves useful for somebody.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;running-mame&#34;&gt;Running MAME&lt;/h2&gt;
+&lt;p&gt;A few days ago, I decided to go ahead and update the MAME setup on my machine. I have a mostly-working MAME cabinet in the arcade, but it still needs some work on the controls and display, not to mention it&amp;rsquo;s not exactly portable. I also didn&amp;rsquo;t know the state of MAME on MacOS. Since I work with my personal laptop now, which is my MacBook, I&amp;rsquo;ve been using MacOS for most of my computing needs outside of work as well.&lt;br&gt;
+The good news is that MAME actually works quite well. I installed the latest version from &lt;a href=&#34;http://sdlmame.lngn.net/&#34;&gt;this site&lt;/a&gt; (Why isn&amp;rsquo;t this linked from the download page on mamedev.org?).&lt;br&gt;
+After extracting, you can throw ROM files into the roms folder and launch mame64 to actually get started. I personally like using &lt;a href=&#34;https://www.amazon.com/Buffalo-iBuffalo-Classic-Gamepad-BSGP815GY/dp/B06XWD8QQJ&#34;&gt;this controller&lt;/a&gt; for all of my emulation needs. It&amp;rsquo;s been recognized on every system I&amp;rsquo;ve tried, and has enough buttons for most classic systems. For MAME, I like to have the Select button insert coins, and the Start button be Player 1 Start.&lt;/p&gt;
+&lt;h2 id=&#34;issue-with-gauntlet&#34;&gt;Issue with Gauntlet&lt;/h2&gt;
+&lt;p&gt;Now one of my favorite arcade games has been Gauntlet. I love the tile-based aesthetic of it, the ability to have up to 4 players, and the variety (and amount) of levels in it. Unfortunately, attempting to start it gives me an error right off the bat:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/gauntlet/gauntlet_mame_error.png&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:60%;max-height:60%;&#34; src=&#34;http://www.davidhouchin.com/img/gauntlet/gauntlet_mame_error.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Seriously? I was just playing this on my MAME machine.&lt;br&gt;
+Well, it was probably a much older version of MAME. You can use multiple version of MAME on a Raspberry Pi, but the more common choice is to usually use MAME4ALL, which is based off of MAME 0.37b5, with some additional support for newer games. Even though it&amp;rsquo;s an older version, it performs much faster than the newer versions of MAME, at the cost of ROM compatibility and accuracy.&lt;br&gt;
+On the computer, I&amp;rsquo;m running the newest release of it, so there&amp;rsquo;s going to be some difference in the way ROMs get executed.I was still quite surprised, as Gauntlet is quite a well-known and popular arcade game, that compatibility would just be broken like that.&lt;/p&gt;
+&lt;p&gt;Looking through the 0.191 release notes, I found this:&lt;br&gt;
+&lt;code&gt;gauntlet.cpp: Reinstated correct size for ‘gfx1’ ROM, which was chopped off a long time ago. [f205v]&lt;/code&gt;&lt;br&gt;
+Ok.. that&amp;rsquo;s great, except now it doesn&amp;rsquo;t work. So what options do we have to run this, outside of an older version of MAME, or recompiling it with that change reverted?&lt;/p&gt;
+&lt;p&gt;Well, it&amp;rsquo;s a simple file size change. Let&amp;rsquo;s look at the &lt;a href=&#34;https://github.com/mamedev/mame/blob/master/src/mame/drivers/gauntlet.cpp&#34;&gt;source&lt;/a&gt; for the Gauntlet driver on GitHub and see the exact change at line 596:&lt;br&gt;
+&lt;code&gt;ROM_LOAD( &amp;quot;136037-104.6p&amp;quot;, 0x000000, 0x004000, CRC(6c276a1d) SHA1(ec383a8fdcb28efb86b7f6ba4a3306fea5a09d72) ) // 27128, second half 0x00&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The key is the comment at the end there. The second half of the file is pure zeroes. Also looking at the error from before, it&amp;rsquo;s expecting a file size double what is already there. So we literally just need to expand the file by double what it is, with zeroes.&lt;/p&gt;
+&lt;h2 id=&#34;fixing-the-file&#34;&gt;Fixing the File&lt;/h2&gt;
+&lt;p&gt;First, we want to extract the actual contents of the rom file. Inside of each ROM archive, are the actual binary images of each chip that comprises the arcade game data and code.&lt;/p&gt;
+&lt;p&gt;On a *Nix system such as Linux or MacOS, we can use dd to pad our extracted file:&lt;br&gt;
+&lt;code&gt;dd if=/dev/zero of=136037-104.6p bs=1 count=1 seek=16383&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;dd&lt;/code&gt; is a low-level Unix tool for reading and writing data. Here, we are specifying the input file as the &amp;ldquo;zero&amp;rdquo; device, which is a special file on Unix systems that you can read nulls (0x00) from. The output is our ROM image that needs to be expanded, which we saw in the error and line of code from before. We&amp;rsquo;re keeping block size at 1 since we&amp;rsquo;re just going to write 1 null. Seek will be 16383, since we want to write a single 0x00 to byte 16383. Even though we don&amp;rsquo;t touch any of that space in-between, it&amp;rsquo;s okay as we want it to all be empty anyways!&lt;br&gt;
+The end result is still a 16KB file.&lt;/p&gt;
+&lt;p&gt;I do not know a Windows equivalent command for padding a binary file out-of-the-box, but there are tools like padbin.exe and userland environments like Cygwin and Windows Subsystem for Linux that can provide you these (much needed) CLI utilities.&lt;br&gt;
+(Update - A comment noted that you can use &lt;a href=&#34;http://frhed.sourceforge.net/en/&#34;&gt;this tool&lt;/a&gt; and use Edit-&amp;gt;Append to add 8192 bytes to the file.)&lt;/p&gt;
+&lt;p&gt;Compress the files back into a gauntlet.zip, and the result should be a working game:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/gauntlet/gauntlet_mame.png&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;http://www.davidhouchin.com/img/gauntlet/gauntlet_mame.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;That&amp;rsquo;s a lot of writing for just a simple one-command fix, but I enjoy the process of documenting the cause of an issue and digging for the solution. I hope that it helps somebody.&lt;br&gt;
+I have plenty of things coming up that I&amp;rsquo;m excited to write on. Our arcade has recently seen the addition of a Terminator themed slot machine (Pachislo, specifically) that I&amp;rsquo;m excited to dig into, and as the new garage gets cleaned up, I hope to really get started on the restoration of Space Shuttle.&lt;br&gt;
+I&amp;rsquo;ve also had a lot of interesting projects and restores with classic computers and consoles. Until next time!&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>Bram Stoker&#39;s Dracula Pinball</title>
+       <link>http://www.davidhouchin.com/posts/bsd/</link>
+       <pubDate>Fri, 10 Jul 2020 12:00:00 -0700</pubDate>
+       
+       <guid>http://www.davidhouchin.com/posts/bsd/</guid>
+       <description>&lt;p&gt;&lt;em&gt;This is a repost of an article from my old site originally posted in 2017, in the hopes that the information within still proves useful for somebody.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+&lt;p&gt;Most pinball machines manufactured have a &amp;ldquo;killer feature&amp;rdquo;. While there is absolutely a collection of standard features that have been ubiquitous on nearly every machine, almost every game has tried to offer a unique design element of it&amp;rsquo;s very own. &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=2524&#34;&gt;Terminator 2&lt;/a&gt; has it&amp;rsquo;s rotating cannon, &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=310&#34;&gt;Black Knight&lt;/a&gt; has the magna-save, and &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=4032&#34;&gt;Medieval Madness&lt;/a&gt; has it&amp;rsquo;s crumbling castle. For Bram Stoker&amp;rsquo;s Dracula, most people would say that this is the &amp;ldquo;Mist Ball&amp;rdquo; multiball.&lt;/p&gt;
+&lt;p&gt;As a little preface, since I have not to this point written anything on it, Dracula was my first pinball, and certainly the one I&amp;rsquo;ve spent the most time on so far. I love the theme and art style, and as a huge gothic horror and Castlevania fan, it instantly drew me in when deciding on what pinball machine I first wanted. The gameplay feels very rewarding, if notoriously difficult. I&amp;rsquo;ve also tried to bring it into the 21st century with a complete LED overhaul and LED strips, as well as a Color DMD (They did an &lt;a href=&#34;https://www.youtube.com/watch?v=aoWvsoIphbw&#34;&gt;awesome&lt;/a&gt; job with the coloring on this ROM, I &lt;strong&gt;very&lt;/strong&gt; highly recommend it).&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/bsd/attract.gif&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/bsd/attract.gif&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;While I will usually call it &amp;ldquo;Dracula&amp;rdquo;, this game is actually named Bram Stoker&amp;rsquo;s Dracula, after the 1992 movie. It is usually shorted as &lt;strong&gt;BSD&lt;/strong&gt;. This game is completely separate from the 1979 Stern &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=728&#34;&gt;Dracula&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;That being said, let&amp;rsquo;s continue on to the main feature. I will explain Mist Multiball and what it entails gameplay-wise, go over it&amp;rsquo;s technical details and operation, and explain some basic troubleshooting steps for common issues.&lt;/p&gt;
+&lt;h2 id=&#34;gameplay&#34;&gt;Gameplay&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In pinball, multiball is simply the presence of 2 or more playable balls on the playfield at once. Gameplay-wise, this usually means that special scoring features are active until multiball is over (generally when the player is back down to one or zero balls), and scoring certain shots will win jackpots or otherwise abnormal amounts of points.&lt;/p&gt;
+&lt;p&gt;While multiball is almost a guaranteed feature on pretty much any solid state game past 1980 or so, it wasn&amp;rsquo;t very common beforehand. It did occur previously in more well-known Electro-Mechanical games such as Fireball. Nothing would stop you from shooting up multiple balls in rapid succession on the very early self-loading games, although this did nothing for you score-wise.&lt;/p&gt;
+&lt;p&gt;In modern games, multiball is generally a gameplay goal that will require some time and skill to obtain, and most offer different multiball events that could also include different numbers of balls on the playfield. Often, you have to lock in a ball 3 times in order to start the event. As an example, Star Trek: The Next Generation has a couple different storyline multiball events (from 2-3 balls), but there is a more-or-less final event called Final Frontier that will basically throw you 6 balls at once and allow you to cash in on various things you may have or have not accomplished prior in your game. The game Apollo 13 has a 13 ball multiball!! I have not played it, so couldn&amp;rsquo;t personally speak to what that experience is like..&lt;/p&gt;
+&lt;p&gt;Note that this does not include captive balls, of course, which are balls on the playfield that you can interact with, but usually are held inside of small area or somehow restrained to something.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Dracula contains 3 multiball modes, and the generally agreed-upon major goal of the game is to combine all 3 multiballs (Castle, Coffin, and Mist) simultaneously.&lt;/p&gt;
+&lt;p&gt;Having a multiball active will score 10 million points on each major shot (i.e. Coffin/Castle Ramp, Mystery Hole, etc). Having 2 active will score 20 million, and 3 Thirrrtttyyyy million! (Really, the voice drags out the 30 in-game, it&amp;rsquo;s quite amusing).&lt;br&gt;
+Castle multiball can be achieved by lighting the castle lock (hitting certain targets), and then shooting the castle ramp. The ramp will redirect the ball, if the lock is lit, to the castle where it gets locked and you start with a new ball. Coffin multiball is started by shooting the coffin ramp enough times to open it, which will then lock balls into the coffin. Castle is supposed to represent you killing Dracula&amp;rsquo;s brides, while coffin is killing Dracula himself.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/bsd/mist2.gif&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/bsd/mist2.gif&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Now mist ball is a 2 ball multiball (the others are 3), which can be started by making enough castle ramps. This will light up the mist ball at the mystery hole. If you then shoot the mystery hole, it will start mist ball. Mist ball is also lit automatically on the last ball of the game for each player.&lt;br&gt;
+When you get mist ball, a second ball will begin moving across the playfield. If you can hit it hard enough to knock it off of it&amp;rsquo;s trajectory, you immediately start Mist Ball multiball. From here, you can start making your vital shots, and try to start the other multiballs if they aren&amp;rsquo;t already going.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/bsd/mist1.gif&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/bsd/mist1.gif&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The mist ball can start from either side, although the default is the right side. When you start up a game, it usually drops the ball from the left side and reloads it to the right side. Just know that if a player before you missed the ball, that for you, it will actually start coming from the left.&lt;/p&gt;
+&lt;h2 id=&#34;how-it-works&#34;&gt;How it Works&lt;/h2&gt;
+&lt;p&gt;Underneath the playfield is a motor, a traveling assembly containing an electromagnet (only magnetic when induced with an electrical current), and a long reversing shaft. This allows the magnet to travel bidirectionally.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/bsd/bsd_mist_motor.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/bsd/bsd_mist_motor.jpg&#34; title=&#34;Motor&#34; alt=&#34;Motor&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Motor&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/bsd/bsd_mist_mechanism.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/bsd/bsd_mist_mechanism.jpg&#34; title=&#34;Entire Mechanism&#34; alt=&#34;Entire Mechanism&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Entire Mechanism&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/bsd/bsd_magnet_assembly.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/bsd/bsd_magnet_assembly.jpg&#34; title=&#34;Magnet Assembly&#34; alt=&#34;Magnet Assembly&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Magnet Assembly&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/bsd/mist3.gif&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/bsd/mist3.gif&#34; title=&#34;Magnet in Action&#34; alt=&#34;Magnet in Action&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Magnet in Action&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The path can easily be seen on the bottom of the playfield, by the direction of the reversing shaft, but also on the top by simply looking at the green mist graphic. It follows directly above this line.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/bsd/bsd_mist_line.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/bsd/bsd_mist_line.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;It should also be noted that there are actually a series of inserts below the green mist line, which allows a light mounted on the magnet assembly to shine through, giving the appearance of a light traveling across the mist. The socket on my light likes to be tricky; it doesn&amp;rsquo;t always light up.&lt;br&gt;
+The magnet is stopped at it&amp;rsquo;s limits by two switches, 81 and 83, (Magnet Left and Magnet Right) that indicate the magnet has reached the end of it&amp;rsquo;s travel.&lt;br&gt;
+There are two pockets on each side of the playfield that can contain a ball. They are closed off by solenoid-operated gates. The game is aware of the ball&amp;rsquo;s location (or absence) through the use of optical sensors in each pocket, which for the left side is switch 52, Opto Magnet L. Pocket.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/bsd/bsd_mist_right_pocket.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/bsd/bsd_mist_right_pocket.jpg&#34; title=&#34;Right Pocket&#34; alt=&#34;Right Pocket&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Right Pocket&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/bsd/bsd_mist_left_pocket.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/bsd/bsd_mist_left_pocket.jpg&#34; title=&#34;Left Pocket&#34; alt=&#34;Left Pocket&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Left Pocket&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;How does the game know if the ball is still sitting on top of the magnet or not? There is actually a special infrared sensor (Switch 82, Ball-On-Magnet) that transmits from the right pocket into a receiver on the left side. This beam is normally obstructed by the ball, so it is actually switched on when the beam makes contact (like when the ball is knocked off it&amp;rsquo;s path by the active ball).&lt;/p&gt;
+&lt;p&gt;This sensor is controlled by a special board just for it, that is only used in a couple other games (I believe &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=4458&#34;&gt;Star Wars Episode I&lt;/a&gt; and &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=2528&#34;&gt;The Shadow&lt;/a&gt;).&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/bsd/24opto_schematic.png&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/bsd/24opto_schematic.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The manual labels this chipset as the &amp;ldquo;24-Switch Opto Assembly&amp;rdquo;, but it&amp;rsquo;s more than likely that they meant &amp;ldquo;24-inch Opto Assembly&amp;rdquo;, as the optical sensor operates over a much longer distance than the normal sensors do. It was probably mixed up with the &amp;ldquo;10-Switch Opto Assembly&amp;rdquo;, which actually does manage multiple optos.&lt;/p&gt;
+&lt;p&gt;The ball is &amp;ldquo;loaded&amp;rdquo; into the right magnet pocket by lifting up the ramp in the shooter lane, and shooting the ball down this lane instead. If you are in the middle of a game, it can look a little confusing for new players to see a ball loaded into the shooter lane (you may think you are getting a ball saved from multiball or something), but it instead shoots underneath the ramp to the right ramp pocket.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/bsd/bsd_shooter_ramp.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/bsd/bsd_shooter_ramp.jpg&#34; title=&#34;This metal ramp is lifted up&#34; alt=&#34;This metal ramp is lifted up&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;This metal ramp is lifted up&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h2&gt;
+&lt;p&gt;I will start off immediately with this - If your magnet/motor components are non-functional in any way, whether it is a sensor issue causing the magnet to just go back and forth, or the motor is failing to work or something else, simply disable the magnet feature until you can get it to work.&lt;/p&gt;
+&lt;p&gt;This setting can be found in Feature Adjustments -&amp;gt; #42: Magnet. Set this to DISABLE to simply turn off the entire magnet system. This bypasses the magnet feature, so that when the mystery hole is shot with Mist lit, the 2nd ball is just immediately shot into play. Obviously, this is a less than ideal situation, and the player doesn&amp;rsquo;t have to go through the work of knocking the ball off it&amp;rsquo;s path, but it does allow the game to be playable.&lt;/p&gt;
+&lt;h3 id=&#34;diagnostics&#34;&gt;Diagnostics&lt;/h3&gt;
+&lt;p&gt;Luckily for us, the game, like other solid state games, offers a somewhat comprehensive diagnostic toolset in regards to the magnet features. Entering the test menu will allow you to run the magnet tests, that will go through a number of diagnostic tests for magnet operation. Here are the steps and what they mean:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Unload Magnet&lt;/strong&gt; - The magnet will move towards the center of the playfield and then release the ball so that it drains.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Opto Check 1&lt;/strong&gt; - Lamps and flashers will blink to test interference with the optical sensor.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Load Magnet&lt;/strong&gt; - A ball is ejected into the shooter lane, ramp lifted, and then shot into the right ball pocket.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Opto Check 2&lt;/strong&gt; - Lamps and flashers will blink again to test interference. Unlike check 1, this check could indicate grounding issues as opposed to optical ones.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Magnet On + Left&lt;/strong&gt; - The magnet moves the ball to the left pocket.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Opto Check 3&lt;/strong&gt; - Lamps and flashers blink to test optical interference one more time.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Magnet On + Right&lt;/strong&gt; - The magnet moves the ball to the right pocket.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Magnet Off + Left&lt;/strong&gt; - The magnet moves to the left pocket deactivated (without the ball).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Magnet Off + Right&lt;/strong&gt; - The magnet moves to the right pocket deactivated.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can run the steps in sequence, or repeat a test until stopped. During these tests, a status display is shown on the DMD that indicates the state of the various related components of the system. Here is an excerpt from the manual chapter on the Magnet Test:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/bsd/magnet_test_dmd.png&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/bsd/magnet_test_dmd.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;As above, all of this is detailed in the manual, and I highly recommend that any owner of a BSD also obtains a manual along with it.&lt;/p&gt;
+&lt;h3 id=&#34;24-opto-board&#34;&gt;24 Opto Board&lt;/h3&gt;
+&lt;p&gt;(I diagnosed this issue a while ago, and did not do my normal routine of taking snapshots of each step.. my apologies)&lt;/p&gt;
+&lt;p&gt;After owning the game for a period of time, my Mist ball stopped working. It actually caused the motor to spin the magnet back and forth several minutes at the start of each game, which was incredibly annoying (The motor is quite noisy), and also worried me regarding wear to the motor. Although it took some switch diagnostics, I determined that the Ball-On-Magnet switch was permanently ON, as it did not react to any changes.&lt;/p&gt;
+&lt;p&gt;You should be able to test the operation of this switch simply by moving your finger across the playfield (if the sensors are correctly aligned). Otherwise, you can actually point a cell phone camera at the right-hand emitter and pick up what appears to be a purple blinking light. This is actually the IR beam of the emitter, which is beyond the spectrum of what our eyes can perceive. The camera interprets this as a visual purple light, however. At least for my cell phone!&lt;/p&gt;
+&lt;p&gt;In my case, nothing was happening at all. If I had to guess, the magnet couldn&amp;rsquo;t tell that the ball was not on the magnet, and thus kept moving back and forth in an attempt to let the non-existent ball go. This was also why the ball would refuse to load, and why if I manually placed a ball into the right pocket, it would carry it out and let go of it halfway-through, but continue moving.&lt;/p&gt;
+&lt;p&gt;I was unable to find anything visually wrong with the emitter, so moved on to the 24 Opto Board. I pulled the board out from under the playfield. Hm.. well it was pretty obvious what the issue was, or at least what one of them was. Component L1, the inductor, had one of it&amp;rsquo;s leads completely disconnected from the board. I ordered an inductor of equivalent rating and soldered it in place, but it had no effect. I will freely admit that operating on the circuitry itself is not one of my strengths, and is something I am working on improving. I very well may have been able to successfully repair the board in another way, but wasn&amp;rsquo;t at this point comfortable with going forward on this board, or paying for a professional repair on it.&lt;/p&gt;
+&lt;p&gt;After a good amount of research, I kept running into a replacement board manufactured by Homepin, an Australian group (single or multiple person?) that creates replacement PCBs for pinball machines using newer parts and more reliable designs. This board was a completely reimplemented version of the 24 Opto Board, but with more reliable components and a few additional features. The problem was that the initial manufacturing run was several years back, and I couldn&amp;rsquo;t find one for sale anywhere. I even emailed a few online stores to see if they had any in stock.. no luck.&lt;/p&gt;
+&lt;p&gt;I found an expired ad on Pinside (over a year old) for the replacement chip that had gone unsold. I messaged the user, and to my surprise, they still had it and were willing to sell! Back in action, I received the new board and installed it. The magnet immediately worked as expected. Success! As a bonus, the new board even has a nifty LED that lets you know if the beam is connecting or not.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/bsd/24opto_original.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/bsd/24opto_original.jpg&#34; title=&#34;Original Board&#34; alt=&#34;Original Board&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Original Board&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/bsd/24opto_replacement.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/bsd/24opto_replacement.jpg&#34; title=&#34;Replacement Board&#34; alt=&#34;Replacement Board&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Replacement Board&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;switch-column&#34;&gt;Switch Column&lt;/h3&gt;
+&lt;p&gt;Not too long ago, I ran into the magnet not working once again. Lifting up the playfield, I was able to quickly test the optical sensor did indeed work, thanks to the LED on the new replacement board. It did not register on the game&amp;rsquo;s switch matrix test. That means that while the component itself was working, I had an issue somewhere else up the chain. Looking at the switch matrix, I noticed that there were several other switches on the same column, including the middle bank of three targets. Testing them, I confirmed that they did not work. Furthermore, looking underneath the right target revealed a wire that had come loose. A quick re-solder, and the game was fully functional again. Thanks to the new board, I was able to quickly switch my diagnosis to somewhere else, instead of focusing incorrectly on the opto and it&amp;rsquo;s new chip.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/bsd/bsd_target_bank_switch.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/bsd/bsd_target_bank_switch.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;right-gate&#34;&gt;Right Gate&lt;/h3&gt;
+&lt;p&gt;I had several issues with the ball not correctly entering the right pocket. Essentially, the gate was angled too low, so the ball would be unable to enter the pocket as the magnet moved to the right, and would fall into the playfield. While the game can account for the ball errantly being in the playfield (and doesn&amp;rsquo;t count it as a drain), it is a very annoying issue. The solution is simple: bend the gate upwards so that you have a little more clearance for the ball when the gate is lifted.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I hope this was a handy introduction into the Mist Multiball feature of the Dracula pinball game. While I went over just a couple issues that I encountered, there are a number of things that can go wrong, and I&amp;rsquo;d highly encourage owners of BSD read online about various owner&amp;rsquo;s experiences with various magnet issues. I will update it if I can locate it again, but I do remember running into a website that contained a large number of detailed issues with the Mist components.&lt;/p&gt;
+&lt;p&gt;I highly recommend that anybody with BSD buy the reproduction opto boards if they ever run into them, regardless of whether their current board is running or not. The original boards seem to have a high failure rate, and can be annoying to diagnose. It is my hope that Homepin or somebody else can continue the manufacture of replacement 24&amp;rdquo; Opto Boards.&lt;/p&gt;
+&lt;h2 id=&#34;update-jan-2019&#34;&gt;Update Jan 2019&lt;/h2&gt;
+&lt;p&gt;It looks like &lt;a href=&#34;https://www.pinballlife.com/24-opto-replacement-board-a-15646.html&#34;&gt;PinballLife.com has these in stock&lt;/a&gt; at the moment, good news for anyone else searching for the boards.&lt;br&gt;
+I haven&amp;rsquo;t had any issues in the past 2 years with the board I&amp;rsquo;ve ordered.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/bsd/bsd_playfield_up.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/bsd/bsd_playfield_up.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+     </item>
+   
+     <item>
+       <title>Space Shuttle Pinball</title>
+       <link>http://www.davidhouchin.com/posts/ss/</link>
+       <pubDate>Fri, 10 Jul 2020 11:00:00 -0700</pubDate>
+       
+       <guid>http://www.davidhouchin.com/posts/ss/</guid>
+       <description>&lt;p&gt;&lt;em&gt;This is a repost of an article from my old site originally posted in 2017, in the hopes that the information within still proves useful for somebody.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This last weekend, we visited the &lt;a href=&#34;http://www.nwpinballshow.com/&#34;&gt;Northwest Pinball and Arcade Show&lt;/a&gt; for a little bit. We had a great time, played a ton of games I haven&amp;rsquo;t touched until now, and got to meet and grab a picture with Steve Ritchie (Out of my games, designer of Terminator 2, and the voice in Space Shuttle)! I may make a post on what I thought about it, but I did indeed enjoy it - for the most part.The highlight of the day, however, was getting my best break in pinball purchasing so far. Just before leaving for the show, my awesome friend tipped me off to a &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=2260&#34;&gt;Space Shuttle&lt;/a&gt; that had been put up not 10 minutes earlier on OfferUp! The seller had only posted one somewhat low-res picture, but it was a short detour from the show and they were only asking $600. I&amp;rsquo;ve been not only wanting an 80s solid-state for my next machine, but I was specifically looking for a space themed one, and Space Shuttle was at the top of my list. I had to at least check it out, so I called immediately and asked about coming up to look at it. We rounded back and grabbed my tools/lift-cart/moving blankets (don&amp;rsquo;t want to ding up the car like Cannes, my 70s game, did&amp;hellip;).&lt;/p&gt;
+&lt;h2 id=&#34;the-pickup&#34;&gt;The Pickup&lt;/h2&gt;
+&lt;p&gt;&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/ss/ss_initial.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/ss/ss_initial.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;br&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/ss/ss_initial_lit.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/ss/ss_initial_lit.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;(This is after I took it back home - I did not get any pictures of it before picking it up)&lt;br&gt;
+(Note - These were the initial things I noticed before picking up. You can skip to the next sections for pictures)&lt;/p&gt;
+&lt;p&gt;On arrival, we went to a back room in the house and checked it out. Dust galore! I could immediately tell that this game was probably not cleaned in years, and the cabinet was faded. According to the seller, they bought the game 8 years ago from a pawn shop.&lt;br&gt;
+There was no serious damage and no chunks missing out of the cabinet. The playfield, besides grimy, had little wear from an immediate glance (at least compared to a lot of the Space Shuttles I&amp;rsquo;ve seen).&lt;/p&gt;
+&lt;p&gt;The backglass.. well, it had seen better days. The bottom of it was torn up. Luckily, there was no peeling or tearing up above the bottom line border, so the main image itself was untouched. It would need replacement, but wasn&amp;rsquo;t an immediate priority.&lt;/p&gt;
+&lt;p&gt;Opening up the backbox, I took a look at the boards back there. Apart from some more dust, they looked virtually new! No sketch repairs, boards looked very clean, and no battery acid leakage onto the PCB. The seller wasn&amp;rsquo;t aware that there was even circuitry in the backbox.. 8 years.. those batteries were troopers!&lt;/p&gt;
+&lt;p&gt;Now powering on the game, we run into an immediate problem. The ball popper is too weak to load the ball into the shooter lane, and they&amp;rsquo;ve had to resort to actually just pushing up on it from inside the cabinet to load the ball half the time! Shooting the ball, however, shows that all the switches are responding normally.&lt;/p&gt;
+&lt;p&gt;The flippers and slingshots are weak, but they function surprisingly better than I expected. Almost all of the lights were working, and the sound was coming out absolutely fine. The numeric displays all seem to work, and look great!&lt;/p&gt;
+&lt;p&gt;Looking closely at the playfield, I can see some of the wear up by the pop bumpers (pretty standard on these machines) that will need some touching up. The shuttle is also going to either need some significant work, or just get replaced. Overall, though, I&amp;rsquo;m pleased with it. Not only will I get some valuable experience from restoring this machine, but I still feel that the price is absolutely worth it.&lt;/p&gt;
+&lt;p&gt;Asking the seller, I did slip in a few minutes before the next several buyers. I don&amp;rsquo;t feel too bad, considering the number of games I&amp;rsquo;ve missed out on. We load it up, not too awful a process, and head on to the show.&lt;/p&gt;
+&lt;h2 id=&#34;backglassbackbox&#34;&gt;Backglass/Backbox&lt;/h2&gt;
+&lt;p&gt;With the game back in my garage, I can take a much longer look at exactly what&amp;rsquo;s going to need work, and what parts need to be replaced. The first thing that catches my eye (again) is the backglass. I wasn&amp;rsquo;t entirely sure what the going price for these were, and the price asked by a vendor at the show ($230) was a bit more than I was looking to pay.&lt;/p&gt;
+&lt;p&gt;Checking online, I can&amp;rsquo;t immediately find any for sale besides $275 at &lt;a href=&#34;http://www.marcospecialties.com/pinball-parts/31-1315-535&#34;&gt;Marco Specialties&lt;/a&gt;. Hm.. maybe I should have grabbed the one from the show.. Oh well. I will need to keep my eye out for this one.&lt;br&gt;
+I tape down the remaining flakes (they are literally falling off as I take down the backglass) with some clear tape to try to hold their position and minimize further flaking/tearing for now.&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/ss/ss_backglass_back.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:40%;max-height:40%;&#34; src=&#34;http://www.davidhouchin.com/img/ss/ss_backglass_back.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;br&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/ss/ss_backglass_front.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:40%;max-height:40%;&#34; src=&#34;http://www.davidhouchin.com/img/ss/ss_backglass_front.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;With the exception of the bottom area, the rest of the backglass actually looks great. If I am able to get this replaced, I would have no qualms about hanging the old backglass (with perhaps further protection or something to block the bottom section) as wall art.&lt;/p&gt;
+&lt;p&gt;I take a close look at the backbox circuitry, but once again do not notice anything that reaches out to me as damaged.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/ss/ss_boards.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;http://www.davidhouchin.com/img/ss/ss_boards.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;playfield&#34;&gt;Playfield&lt;/h2&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/ss/ss_playfield.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;http://www.davidhouchin.com/img/ss/ss_playfield.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Pulling off the glass, I can see the playfield up close and take a few pictures of the critical areas. By far, the worst areas are the bumpers and lanes above them, and the entrance to the shuttle ramp.You can see that the playfield is worn away above the S insert, and directly above the bottom pop bumper. For the ramp, the drop-down target is obscuring it, but there is some wear directly behind it.&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/ss/ss_wear_ramp.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/ss/ss_wear_ramp.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;br&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/ss/ss_wear_bumpers.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/ss/ss_wear_bumpers.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;The main playfield with it&amp;rsquo;s huge bank of inserts is actually looking great. Contrast this with one of the Space Shuttles I saw at the show. The game had great lighting, nice cabinet and backglass, but the playfield was pretty torn up!&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/ss/ss_playfield_close.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/ss/ss_playfield_close.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;br&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/ss/ss_from_show.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/ss/ss_from_show.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;There are no cracked or broken plastics at all, and the few slightly warped ones can be repaired with some heat.The Shuttle toy is looking a little beat up. The wing with the flag is broken, and there&amp;rsquo;s some damage near the nose. It&amp;rsquo;s also yellowed pretty significantly. I may need to find a replacement for this, or repair and repaint it, then get new decals.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/ss/ss_shuttle.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/ss/ss_shuttle.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;under-playfieldinside-cabinet&#34;&gt;Under Playfield/Inside Cabinet&lt;/h2&gt;
+&lt;p&gt;Lifting it up, I look for any obvious issues that will need to be addressed. I already know I&amp;rsquo;m going to need to clean or replace the coil that loads the balls into the shooter lane. I will probably rebuild the flippers as well, since they are misaligned and weak, and I really could use the experience.&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/ss/ss_playfield_up.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/ss/ss_playfield_up.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;br&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/ss/ss_flipper_coil.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/ss/ss_flipper_coil.jpg&#34; title=&#34;Flipper Coil&#34; alt=&#34;Flipper Coil&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Flipper Coil&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;br&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/ss/ss_loader_coil.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/ss/ss_loader_coil.jpg&#34; title=&#34;Loader Coil&#34; alt=&#34;Loader Coil&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Loader Coil&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Check that flipper coil out in the full-resolution picture. Yes, that is a little bungie acting as the spring.The game actually came with a cashbox, and with the MANUAL (and schematics). This is the first game I have bought (video game or pinball) that actually came with any of the original documentation.&lt;br&gt;
+I guess keeping the manuals inside the game isn&amp;rsquo;t something everyone does. I really like having the manual and schematics with the game, even with PDFs freely available. It just makes the game feel complete to me.&lt;/p&gt;
+&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;With a look over everything, I have a good list of the Good/Bad with this game, and what I need to do to get started.&lt;/p&gt;
+&lt;h4 id=&#34;bad&#34;&gt;Bad:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Backglass is torn up - Replace with a new backglass, or one of the few replacement translites (if I can get one)&lt;/li&gt;
+&lt;li&gt;Playfield is very grimy, overall wear/tear, and some moderate wear by pop bumbers and shuttle ramp - Remove the mylar, deep clean the playfield, touch up parts that need it, and clearcoat! (Maybe.. we&amp;rsquo;re not there yet)&lt;/li&gt;
+&lt;li&gt;Shuttle looking not-so-great - Get a replacement one, or repair this one and repaint.&lt;/li&gt;
+&lt;li&gt;Cabinet faded - Recolor with stencils(?). Really, it doesn&amp;rsquo;t look too bad as-is. The red is uniformly faded across the entire cabinet.&lt;/li&gt;
+&lt;li&gt;Coils weak, flippers beat up - Rebuild flippers and replace solenoids that need it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;good&#34;&gt;Good:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Plastics are all in great condition and have no cracks or breaks.&lt;/li&gt;
+&lt;li&gt;Main playfield area looks great, no wear or loss of paint.. yet.&lt;/li&gt;
+&lt;li&gt;Cabinet is solid.&lt;/li&gt;
+&lt;li&gt;Boards and wiring look absolutely great.&lt;/li&gt;
+&lt;li&gt;Plasma displays look and work like new.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Not to mention, I&amp;rsquo;m also going to replace all the bulbs with colored LEDs and get the coin acceptors and coin door lock reinstalled. They were removed by the previous owners, but kept with the game.&lt;br&gt;
+I should note that you don&amp;rsquo;t need to modify the coin door for free play with this game. Just change setting #18 &amp;ldquo;Max Credits&amp;rdquo; to 0. Even the early solid-states had configurable settings.&lt;/p&gt;
+&lt;h2 id=&#34;what-now&#34;&gt;What Now?&lt;/h2&gt;
+&lt;p&gt;Luckily, this process has already been documented a couple times for me! &lt;a href=&#34;http://www.edcheung.com/album/album05/pinball/shuttlepin.htm&#34;&gt;Ed Cheung&lt;/a&gt;, principal engineer of the Hubble Space Telescope, is an avid fan of pinball, and heavily documented his work on his Space Shuttle. Interesting note.. he bought his game back in 2005 for also $600 (Although his cabinet paint and backglass was better).&lt;br&gt;
+Ed has gone so far as to recreate the playfield and the backglass, help CPR do a run of new replacement playfields several years ago and print out several new translites to replace damaged backglasses. Unfortunately, I will probably not be able to obtain any new translites from him, as it&amp;rsquo;s been a number of years since he last worked on them.&lt;/p&gt;
+&lt;p&gt;Overall, I&amp;rsquo;m really looking forward to working on this game and documenting the repairs/restoration. Before, I&amp;rsquo;ve bought games that were already worked on. I think this will be a great learning experience for me, and the end result will be a great 80s solid-state that will be a fun addition to my collection, for much cheaper than I could&amp;rsquo;ve spent on a shopped one.&lt;br&gt;
+Seriously, the 3 Space Shuttles on eBay right now are $8000, $3600, and $3500.. none including shipping. That&amp;rsquo;s a different discussion, however.&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>Terminator 2 Pinball</title>
+       <link>http://www.davidhouchin.com/posts/t2/</link>
+       <pubDate>Fri, 10 Jul 2020 00:10:00 -0700</pubDate>
+       
+       <guid>http://www.davidhouchin.com/posts/t2/</guid>
+       <description>&lt;p&gt;&lt;em&gt;This is a repost of an article from my old site originally posted in 2017, in the hopes that the information within still proves useful for somebody.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+&lt;p&gt;Just a few days ago, I received &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=2524&#34;&gt;Terminator 2&lt;/a&gt;. This machine is awesome! Talk about a powerhouse packed with great sounds and visuals, alongside easy-to-pick-up gameplay and an instantly recognizable theme.&lt;br&gt;
+A quick trip down T2&amp;rsquo;s history - This machine was released in 1991 and designed by Steve Ritchie, who has designed several other excellent games at Williams (&lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=310&#34;&gt;Black Knight&lt;/a&gt;, &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=856&#34;&gt;Firepower&lt;/a&gt;, &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=804&#34;&gt;F-14&lt;/a&gt;, &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=2357&#34;&gt;Star Trek: TNG&lt;/a&gt;, etc). He continues his work at Stern Pinball today, as of this writing. This was the first pinball machine designed to use the Dot-Matrix Display (DMD) and the first to include a video mode, although &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=1004&#34;&gt;Gilligan&amp;rsquo;s Island&lt;/a&gt; was first released with a DMD because of a shorter design and release cycle.&lt;br&gt;
+When I bought this machine, I was looking for a little less work on the LED and maintenance side of things because of my previous work on my &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=3072&#34;&gt;BSD&lt;/a&gt;, and specifically sought out a machine that had an LED kit installed with no serious malfunctions. I&amp;rsquo;m hoping that in here, I can document a few of the (smaller) maintenance issues and oddities I had with the machine.&lt;br&gt;
+I assume that the reader is unaware of most pinball/video game technical concepts and will work off that baseline. I myself am still learning a lot about these machines, and can certainly get something wrong. I always welcome updates and corrections. Hopefully, I can keep this going and do a few more posts on the work I do. Either way, I hope that somebody can get a decent read out of it!&lt;/p&gt;
+&lt;h2 id=&#34;initial-observations&#34;&gt;Initial Observations&lt;/h2&gt;
+&lt;p&gt;Immediately after being dropped off and before the driver leaves, I power it on. Everything seems to light up, and I could hear the thudding sound of the T2 logo intro. Cabinet looks alright.. A few dings, some fading on the right side.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_initial.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_initial.jpg&#34; title=&#34;I need your clothes, your boots, and your motorcyle.&#34; alt=&#34;I need your clothes, your boots, and your motorcyle.&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;I need your clothes, your boots, and your motorcyle.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;A little bit later, I get the chance to take a closer look at everything and see what I&amp;rsquo;m really dealing with. Starting up a game, I&amp;rsquo;m immediately greeted with a &lt;strong&gt;PINBALL MISSING&lt;/strong&gt; error, and a cacophony of solenoids going off. Great.. I thought I saw 3 balls in the trough? Checking the manual, I do verify that T2 is indeed a 3 ball game. Taking the glass off and putting a pinball into the shooter lane results in the ball being shot into the playfield and out of existence again once it drains. Great.. let&amp;rsquo;s open her up and check the switches.&lt;/p&gt;
+&lt;h2 id=&#34;switch-matrix&#34;&gt;Switch Matrix&lt;/h2&gt;
+&lt;p&gt;Thanks to the awesome diagnostic capabilities in WPC (Williams Pinball Controller) machines, we can check which switches are giving us trouble.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;For casual readers that are unaware of what the switch matrix may be, it&amp;rsquo;s an array that drives all the switches in a solid-state pinball game.Generally, these are rollover switches, but can be anything from the flipper buttons, to an optical sensor (generally called optos) that is checking if a ball is physically blocking the beam (and hence is positioned in a certain spot).&lt;br&gt;
+The way it works is by using a number of rows and columns to read switches instead of a large number of individual circuits. The columns are pulsed at a rate of 500 per second, while the rows are constant. When a switch is engaged, and that column is pulsed, the current returns back through the row to an input on the main board, and the CPU knows that the switch at that row and column is activated.&lt;br&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_switch_matrix.png&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_switch_matrix.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Continuing on, I can enter the service tests menu and check the switch edge test. I can tell that the outhole and trough switches are not responding. Let&amp;rsquo;s lift up the playfield (make sure to pull out the pinballs! I find an extending magnet to be perfect for pulling these out, and just overall useful) and see if something came undone on the wiring here. This also gives us a chance to check out the inside of the cabinet some more.&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_playfield_up.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_playfield_up.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;br&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_playfield_up_close.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_playfield_up_close.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;br&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_cab_bottom.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_cab_bottom.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t see anything immediately noticeable with the under-playfield wiring. Moving on to the backbox, we can remove the backglass and speaker panel to see what&amp;rsquo;s going on with the circuit boards. According to the switch matrix diagram in the manual, I can see that every switch in the column is not responding, which happens to include everything in the ball drain and trough. I can also see that the column connector is J206. These are numbered on the PCB for us, so we can check which connector is going where.&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_boards.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_boards.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;br&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_behind_dmd.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_behind_dmd.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;You might be asking two things at this point:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Okay, if the column isn&amp;rsquo;t working, then why are the flipper buttons, start button, and plumb bob tilt working? Clearly, they&amp;rsquo;re on the same column as seen on the diagram.&lt;/li&gt;
+&lt;li&gt;What? The row (and column) connector is plugged into J209 and J207! The same diagram says these should be J206 and J208.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For #1, cabinet switches actually go to a whole &amp;lsquo;nother connector at J212.. confused yet? Although I didn&amp;rsquo;t immediately deduce it at the time, this should have clearly indicated to me that there was some issue with columns connector for playfield switches. Plus it has a nifty little label right above it.. cabinet switches&amp;hellip;Regarding #2, the connectors J206/J207 and J208/J209 are supposed to be electrically the same, and thus interchangeable. I haven&amp;rsquo;t really tested it, but you can see that the traces seem to connect both connectors, and the schematic for the WPC89 CPU board does show them connected.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/cab_switch_schematic.png&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/cab_switch_schematic.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Taking a look right at J207, I can already tell where the problem is going to be. Looks like somebody hacked the connector together.. awesome. The wires have been jammed into the connector, and they have been twisted together with the old switch column wires and taped over with electrical tape. I pop open the switch test and jiggle the wire at J207 column 1. The trough switches intermittently light up.I want to address this connector further, but for now, I pull out column 1, cut the tip off, strip it, and reinsert the wire (While this happens, column 4 breaks off, and I have to do the same thing to it). When I get a chance, I will probably in-line solder the wires together and cover with heat-shrink wrapping. Finally! We can play a game!&lt;/p&gt;
+&lt;h2 id=&#34;first-game&#34;&gt;First Game&lt;/h2&gt;
+&lt;p&gt;With the game closed back up, and switches supposedly working, I hit the start button. Instead of the PINBALL MISSING error, a ball is deposited into the shooter lane. Awesome.I immediately notice that the skillshot is off.. like way off. It pretty much hits completely above the top target.&lt;br&gt;
+Ok.. well the rest of the game seems to work. The playfield is in great shape, and the ball doesn&amp;rsquo;t have any issues going up the ramps. Finally, I get a ball into the skull, and it shoots off into the cannon. The motor starts whirring and the cannon comes swinging around, I eagerly await for the cannon to point at the center target.. and.. pull!
+Nothing happens. The cannon hits the bottom of it&amp;rsquo;s arc, swings back up, and automatically fires the ball (at the wrong target). Seriously? I just used the trigger to launch the ball.. and proceed to do so again.&lt;br&gt;
+I start to notice that a number of LEDs are not working. The outlanes don&amp;rsquo;t light up, some of the skill shot targets don&amp;rsquo;t seem to light up, and I look up and notice that 2/3 of the back board GI (general illumination) isn&amp;rsquo;t lit (Anymore? I was almost positive these were lit when I first powered it on). This time, when the ball enters the cannon.. it doesn&amp;rsquo;t fire at all. In fact, the cannon just stops back upwards at home with the ball still in it!I go ahead and enter service mode, and fire up the solenoid test to verify this, moving it to solenoid 2 (Gun Kicker). Sure enough, nothing happens.To top it all off, there&amp;rsquo;s something wacko going on with the DMD (Dot-matrix Display). There&amp;rsquo;s some weird corruption going on. Although most animations are only affected to a small degree, some displays, like the score itself, have been majorly affected:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_dmd_corruption.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_dmd_corruption.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Whew, let&amp;rsquo;s catch our breath and see what&amp;rsquo;s going on:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GI and insert lights going out&lt;/li&gt;
+&lt;li&gt;Over half of backboard GI out&lt;/li&gt;
+&lt;li&gt;Skill shot way off&lt;/li&gt;
+&lt;li&gt;Cannon not firing by trigger (at first), and now the solenoid is not firing at all&lt;/li&gt;
+&lt;li&gt;DMD screen corruption&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;lighting-issues&#34;&gt;Lighting Issues&lt;/h2&gt;
+&lt;p&gt;Well, the lighting looks like the easiest to dive into, so I pull the backbox open again and take a look at the lighting circuits. Tracing the main cabling from the backbox panel back to the power driver board, I notice the rest of the backbox lighting flip on for a second. Hm, so it is wiring! Following it to connector J120, I tweak the connector a bit, then pull it out and reseat it. I also do connector J121. The playfield and backbox GI lighting can use both of these connections. In fact, they&amp;rsquo;re linked!&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_lighting_connectors.png&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:20%;max-height:20%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_lighting_connectors.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The majority of the lighting comes back on after this. Hey, they don&amp;rsquo;t all have to be complex fixes.&lt;/p&gt;
+&lt;h2 id=&#34;dmd-corruption&#34;&gt;DMD Corruption&lt;/h2&gt;
+&lt;p&gt;Next, I try to figure out what&amp;rsquo;s going on with the DMD. As a quick test, I have the old DMD from my Bram Stoker&amp;rsquo;s Dracula laying right here (It got the excellent Color-DMD treatment), so I pull it out of the box, and swap it out. Unfortunately, due to the trim around the T2 DMD, I can&amp;rsquo;t fully seat the Dracula one in there. I switch it on and play a quick game, however, and see that I still have display corruption. I check the display board and notice nothing out of the usual, but reseat the data ribbon cable firmly to verify. After placing the original DMD back, I power on the game and notice the corruption is gone! Man, these cables can get out of hand. I didn&amp;rsquo;t take any pictures of the DMD itself, but looking at the backbox picture above, it&amp;rsquo;s the long skinny ribbon cable on the right side of the box.&lt;/p&gt;
+&lt;h2 id=&#34;diagnosing-the-cannon&#34;&gt;Diagnosing the Cannon&lt;/h2&gt;
+&lt;p&gt;Hey, we&amp;rsquo;ve got some of those issues out the way pretty easily. Let&amp;rsquo;s see if the cannon is something bigger. &amp;ldquo;Gun&amp;rdquo; and &amp;ldquo;Cannon&amp;rdquo; here will refer to the same device.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_cannon.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_cannon.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Last we checked, the cannon was not firing at all, so we need to do a solenoid test. I would give a basic overview of how solenoids work here, but I&amp;rsquo;m going to save that for the next section. What matters is that when I take the glass off and start a game, then place a ball directly into the cannon, it is capable of spinning around and firing the ball automatically again (The trigger still doesn&amp;rsquo;t seem to fire)!
+I never completely figured this one out. I think that they may have been some kind of short that occurred relating to the GI issue that I resolved by reseating connectors and moving cabling around. If I ever get a more clear reason, I&amp;rsquo;ll be sure to update this section.&lt;br&gt;
+So how is it that the gun trigger won&amp;rsquo;t fire the cannon, but can still launch the ball? After all, the trigger switch tests just fine in the switch test.&lt;br&gt;
+Well, it turns out that there a number of switches related to the cannon that affect it&amp;rsquo;s state and operation. Looking at the switch matrix, we can see that these are 31 - Gun Loaded, 32 - Gun Mark, and 33 - Gun Home. These serve the following purposes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Gun Loaded&lt;/strong&gt; - This is a small switch located inside the cannon that is depressed when a ball is in the cannon. Without this, the cannon has no ball in it as far as it is concerned. I once saw the ball get loaded into the cannon once, and actually sit on top of the switch. Luckily, this hasn&amp;rsquo;t happened again yet.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gun Mark&lt;/strong&gt; - The most confusing switch. This is a switch underneath the cannon that rolls along a circular disc underneath the cannon. This disc has two half-circles cut out on both sides, and the switch is screwed into a track on an arm and can be adjusted. As the cannon rotates, the disc moves along with it, and the switch is engaged when it hits the depression. It is used to basically detect when the gun is in the proper position to start being able to be fired. This is so that you can&amp;rsquo;t just shoot it right away and fire the ball into the ramp sign or wherever.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gun Home&lt;/strong&gt; - The same disc from above has a rod that protrudes from it. When the disc rotates enough, the rod hits this switch, signifying that the gun has reached it&amp;rsquo;s home &amp;ldquo;rest&amp;rdquo; position and can stop.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_gun_mech1.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_gun_mech1.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;br&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_gun_mech2.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_gun_mech2.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;br&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_gun_mech3.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_gun_mech3.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;There is a very handy &amp;ldquo;Gun Test&amp;rdquo; in the tests menu that will allow you to fine-tune the alignment of the switches and verify operation of the gun. This test is detailed in the manual, but the gist of it is that you can use the Down button to automatically move the gun to either the mark or to the home position.&lt;br&gt;
+The Up button manually moves it to each position (You can release the button and the motor will stop half way).&lt;br&gt;
+The Enter button will actually fire the cannon solenoid, so feel free to place a ball in the cannon and fire it off (don&amp;rsquo;t destroy your plastics).
+Note that when you leave the Gun Test menu, the game will calibrate the gun for a little bit by running it through it&amp;rsquo;s cycle numerous times. It&amp;rsquo;s natural for this to take a minute or two.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_gun_test.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_gun_test.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;So let&amp;rsquo;s return to the original issue, where the cannon would not fire at the targets. If I have the test move the gun to the Mark position, and fire a ball off, it actually lands somewhere near the middle target. Hmm, if the Mark position signifies that gun can start firing, then that means that I can&amp;rsquo;t fire during at least half of the cannon&amp;rsquo;s travel.
+By adjusting the two screws on the bottom of the mark switch (seen in the left two pictures), I can slide the switch a little further down the arm so that it hits that depression sooner.&lt;br&gt;
+With a little adjustment and test firing, I get the mark position properly set up to hit the correct position as prescribed by the manual: &amp;ldquo;the bottom of the left ramp and above the Top Stand-up 5-bank Target.&amp;rdquo;&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_gun_aim.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_gun_aim.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;After a test game or two, I determine that I can usually fire and hit the targets now! At this time, I think the Mark position is still a little too far down, because when aiming at the top-most target, I still occasionally have the cannon not fire when I&amp;rsquo;m absolutely positive I&amp;rsquo;m aimed at the target. I&amp;rsquo;ll need to go in and adjust a little more.&lt;/p&gt;
+&lt;h2 id=&#34;skill-shot&#34;&gt;Skill Shot&lt;/h2&gt;
+&lt;p&gt;Alright.. one of my least favorite issues. I&amp;rsquo;ve played this game a few times in real life (before owning it) and tons of times virtually. All of them were pretty good about hitting the center target. I love skill shots and getting the timing down just right. So to have this game massively fail to even hit the targets at all was a major disappointment for me.
+Looking at the picture above of the cannon pointed above the targets.. that&amp;rsquo;s where the skill shot was currently hitting.&lt;br&gt;
+For anyone that is not aware of T2&amp;rsquo;s skill shot, the goal is to launch the ball and hit the currently lit stand-up target with it. This is intended to be the center target, although you will still get the skill shot if you hit any other targets that are currently lit as well. The lit target cycles up and down the 5 targets, and speeds up after every successful skill shot that you make.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A common theme amongst pinball machines is that they are always programmed to handle most failure states!&lt;br&gt;
+This is just one example, where if the skill shot is not hitting center, it still rewards you for hitting whichever one is lit that the plunger happens to fire the ball to.&lt;br&gt;
+Another example is in Dracula. Normally, when you get enough shots on the ramp by the coffin, the ramp lifts up and allows you to lock balls into a hole underneath the ramp, which deposits them elsewhere.&lt;br&gt;
+If the mechanism to lift the ramp was malfunctioning and the ramp couldn&amp;rsquo;t lift up, the game still &amp;ldquo;locks&amp;rdquo; a ball for you even when it continues going up the ramp like before.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;One of the first things I checked was the playfield incline. It could be that the feet have been fully extended out for shipping, and sure enough, that is the case. I end up adjusting them to make for a very steep playfield (back feet fully extended, front feet retracted).
+This causes the pinballs to roll much more quickly back down the playfield and generally creates a &amp;ldquo;faster&amp;rdquo; feeling game. After starting another game, the ball finally hits a target - the top-most one..&lt;br&gt;
+I dealt with this for a bit, but kept looking into a solution. My idea was that the plunger did not have enough power to launch the ball at the intended speed. A faster launch would angle the ball more downwards as it exited the shooter lane. With that idea, I took off the apron (the bottom portion of the playfield that covers the ball trough and plunger. It usually contains the manufacturer name and the rules on it), and took a look at the plunger solenoid.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;What is a solenoid?&lt;br&gt;
+A solenoid is one of the fundamental components of a pinball machine. It is an actuator that is generally composed of an electrical wire wound into a tight coil, with a metal rod inside of it.&lt;br&gt;
+On one side of the rod is a spring, to push it back out of the coil after it has moved. When this coil is energized, it creates a magnetic field that quickly draws the rod through it, until it is de-energized.&lt;br&gt;
+This can essentially be used to create very fast electromechanical actuators that can do various things like fire the ball into the playfield, pop it out of a hole, or activate one of the flippers.&lt;br&gt;
+On the inside of the coil is a plastic tube that separates the rod and coil called the coil sleeve.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_plunger_coil.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_plunger_coil.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_dirty_coil_sleeve.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_dirty_coil_sleeve.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Pulling the plunger coil apart, I found that the coil sleeve inside of it was pretty filthy. A combination of heat, current, and grease will draw all kinds of grime into the coil, and with that much interference, it could very well affect the performance (or at least that&amp;rsquo;s my idea). I replace it with a new sleeve, reinstall the components and try a new game. Same thing.&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_old_plunger_coil.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_old_plunger_coil.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_new_plunger_coil.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_new_plunger_coil.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Alright, maybe it&amp;rsquo;s the coil? I went ahead and desoldered the old coil, and soldered in a new one. Same thing..  I posted online, and was suggested to modify the shooter lane ball guide, to angle it downwards in order to compensate for the shot. After getting behind the guide, I can see that it screwed down twice, and after unscrewing it and manually pushing it downwards during a bunch of test shots, I determine that the ball guide would have to essentially be moved over a entire screw-hole&amp;rsquo;s length down. I figure that that amount of modification to just achieve the intended skill shot was more than I was willing to do, and decided to look back to see if there was something I missed.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_shooter_lane.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_shooter_lane.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Looking closely at the plunger during firing, I noticed that it moved slightly. I was also able to move it slightly side-to-side with my hand. With the potential to move, the plunger can hit the ball off-center, or not at full power. I also noticed that the metal plate in front of the plunger appeared to be bent, and confirmed this with the manual. I also went ahead and tightened down the entire assembly to the best of my ability.&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_plunger_bracket_bent.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_plunger_bracket_bent.jpg&#34; title=&#34;Yes, I put the sleeve in backwards here.&#34; alt=&#34;Yes, I put the sleeve in backwards here.&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Yes, I put the sleeve in backwards here.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;br&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_plunger_bracket_fixed.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_plunger_bracket_fixed.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_plunger_bracket_mount.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_plunger_bracket_mount.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Yes, I put the sleeve in backwards in the first picture.   Did this fix the issue? Not.. entirely. The ball now usually hits the 4th target up. Sometimes the middle, sometimes the top one. After watching the &lt;a href=&#34;https://www.youtube.com/watch?v=3v8-RbvWMCU&#34;&gt;PAPA video&lt;/a&gt; on T2, I noted that the plunger was pretty inconsistent in making skill shots. I decided that this was an improvement either way, and to leave it alone for now. If I can get a surefire way to hit the center target, I will certainly update the post.&lt;/p&gt;
+&lt;h2 id=&#34;miscellaneous&#34;&gt;Miscellaneous&lt;/h2&gt;
+&lt;h3 id=&#34;profanity-rom&#34;&gt;Profanity ROM&lt;/h3&gt;
+&lt;p&gt;Hey, you&amp;rsquo;ve read this far! You&amp;rsquo;re a trooper. Here&amp;rsquo;s a couple other random things I found while working on the machine.I wasn&amp;rsquo;t really thinking about it when I bought it, but turns out the machine was equipped with the profanity ROM. What? Profanity? Barely. When getting the database shot, the screen cycles through a list of randomized awards (100K points, light hurry up, video mode, etc..). What this modded ROM supposedly does is add Arnold&amp;rsquo;s response of &amp;ldquo;F*ck you A**hole&amp;rdquo; as one of the awards. That&amp;rsquo;s great and all, but I thought it added a bit more! Note: in order to see the option, you need Profanity turned on in the feature adjustments, and will need the game set on free play.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_profanity_rom.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_profanity_rom.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;How did Terminator 2 even get a profanity ROM? While I thought I read this in one of my books (after I went off and looked up the T2 entries in all the pinball books I had), it was actually the site &lt;a href=&#34;http://www.silverball-magic.com/smagic/my-machines.html&#34;&gt;silverball-magic.com&lt;/a&gt; by Maximillian Schultz that had the story.&lt;br&gt;
+Supposedly the lines for the game were recorded on the set of T2 (the movie), and the sound guy for the movie had the script of lines for Arnold to read. At the end, he asked Arnold if there was anything else he wanted to say. &amp;ldquo;Yeah, F*ck you, A**hole&amp;rdquo;.&lt;br&gt;
+The guys at Williams loved it, and included it in a private ROM for the database selection, just like the scene from Terminator 1. I highly recommend pinball fans check out Max&amp;rsquo;s site and read his stories on the machines that he has bought. It&amp;rsquo;s a fun read.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;lighting-woes&#34;&gt;Lighting Woes&lt;/h3&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_lit_playfield.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_lit_playfield.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I mentioned that a few of the LEDs on the machine were still misbehaving after I fixed the bulk GI issue. This is an unfortunate issue with most pinball machines as they get old, and the wiring can get a little long in the tooth. What doesn&amp;rsquo;t help is that LEDs do not do variable brightness very well, so typically respond to voltage changes by becoming extremely dim, or just turning off.While it can be frustrating, there are a few things you can do about it. Sometimes the lights themselves just need to be tweaked with a bit. They may not be making proper contact with the socket. I&amp;rsquo;ve had lights that seem to just operate fine once pulled slightly out or rotated a bit. The problem with this is that vibrations and movement in the cabinet can just push them back to their prior position.You can use a steel brush to clean the contacts, or a pencil eraser. It&amp;rsquo;s unlikely, but the connections may need to be reflowed (the solder heated up and cooled down again to make a better connection). This was the case in one of the GI sockets on T2 for me.There&amp;rsquo;s also the possibility that the wiring itself is off as well. I had consistent issues with the left stand-up targets. Reseating the connector and securing one of the wires a little more solidly into the connector fixed the consistently out bottom light.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_standup_target_lights.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_standup_target_lights.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;skull-drop-target&#34;&gt;Skull Drop Target&lt;/h3&gt;
+&lt;p&gt;When you want to hit the skull on the playfield to get the ball into the cannon and start multi-ball or score jackpot, you usually have to hit it twice. This is to first hit the drop target and knock it down, and then to actually enter the skull. My game has been occasionally getting the ball stuck right above the drop target, because it isn&amp;rsquo;t dropping far enough, and I have no choice but to sit and wait for a Ball Search.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;a href=&#34;http://www.davidhouchin.com/img/t2/t2_skull_drop_target.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;http://www.davidhouchin.com/img/t2/t2_skull_drop_target.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This is an automated routine if no targets have been hit for a period of time (I think around 15 seconds or so), where the game believes the ball may be stuck, and triggers off all the solenoids in an attempt to free the ball from wherever it is stuck.&lt;br&gt;
+It will also cycle the cannon out and shoot it if you wait long enough.&lt;br&gt;
+The amusing part is that part of this search is raising the drop target back up, which always knocks the ball fully into the skull and starts my cannon shot, free-of-charge. While I do want to get this fixed, it is still technically workable, and I&amp;rsquo;m have a difficult time reaching the part of the board that houses the drop target mechanism.&lt;/p&gt;
+&lt;h3 id=&#34;the-game-shutdown&#34;&gt;The Game Shutdown&lt;/h3&gt;
+&lt;p&gt;After finalizing a few fixes, I closed the game up and played a few good games on it. Leaving it running, I went to play Dracula a few games. After shutting it off, I went back to turn off T2, but noticed all the lights were already off.&lt;br&gt;
+Thinking I just forgot that I had already turned it off, I was about to walk out when I noticed the illuminated flipper buttons were still on.. Uh oh.&lt;br&gt;
+I shut the game down and turned it back on. The lights came on, but so did a loud whining noise! Not only that, but the display was just displaying junk, and I couldn&amp;rsquo;t start a game. I was sure that a board was shot, potentially the power driver board (hint: not cheap).&lt;br&gt;
+I started disconnecting boards to try to isolate the problem. Disabling the display board did not stop the sound, and I still couldn&amp;rsquo;t start a game. Disconnecting the sound board from the loop allowed me to start a game, and cut the noise.&lt;br&gt;
+Thinking maybe my sound board would need to be replaced, I reconnected it and gave it one more shot&amp;hellip; and it worked? The game was back to normal and I&amp;rsquo;ve played several on it since. The point of this is.. don&amp;rsquo;t trust the ribbon cables!&lt;/p&gt;
+&lt;h2 id=&#34;what-now&#34;&gt;What Now?&lt;/h2&gt;
+&lt;p&gt;With a few of these things out of the way, I have a pretty solid game. There&amp;rsquo;s a couple of small issues that I still want to address at some point. This includes the skill shot, tweaking the cannon further, and the drop target issue. I also want to do some work on the cabinet. While I can probably get away with some touch ups, I think the side panels could really benefit from new decals overall.&lt;br&gt;
+As for mods, there&amp;rsquo;s couple that I&amp;rsquo;d like to try with T2, but nothing too drastic. I&amp;rsquo;m not a fan of adding a lot of modifications and lighting beyond an initial LED setup. I think the Hunter-Killer mod looks pretty nice. If Color-DMD ever does release a ROM for T2, I may jump on it, as well, even if the animations are a bit basic and wouldn&amp;rsquo;t benefit as much from a color upgrade like Dracula did (It is the first game designed with a DMD after all!)&lt;br&gt;
+(Update - They did finally release a T2 color ROM.. I&amp;rsquo;m not sure if I&amp;rsquo;m going to buy it or not yet)&lt;/p&gt;
+&lt;p&gt;Now onwards and upwards to my new Star Trek: TNG machine! Ok.. maybe not for a bit, but one day!&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
        <title>New Site</title>
        <link>http://www.davidhouchin.com/posts/new-site/</link>
        <pubDate>Fri, 07 Feb 2020 22:10:32 -0800</pubDate>
        
        <guid>http://www.davidhouchin.com/posts/new-site/</guid>
        <description>&lt;p&gt;Welcome to my new site. I&amp;rsquo;ve decided for a while that I should probably move away from WordPress and server-side websites for a while. Moreso for ease-of-hosting and my sanity than anything else. I also decided that I should distill the site a little more to my hobbies only.&lt;/p&gt;
-
 &lt;p&gt;I created this with &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;, mainly because it seemed very fast (it is) and is written in Go. I haven&amp;rsquo;t been disappointed so far. I&amp;rsquo;m using a hacked up copy of the &lt;a href=&#34;https://github.com/funkydan2/hugo-kiera&#34;&gt;Kiera&lt;/a&gt; theme, which I will try to clean up as I have more time.&lt;/p&gt;
-
 &lt;p&gt;I &lt;em&gt;am&lt;/em&gt; going to move the posts that I created regarding some of my work on pinball machines to this site in the near future, as they have been helpful to several people and I want to make sure that knowledge is still available.&lt;/p&gt;
-
 &lt;p&gt;I haven&amp;rsquo;t tackled comments or contact yet. Spam was an absolute nightmare on my WP site, and several legitimate comments were lost or took forever to approve (Partially my fault for not taking the time to really understand Akismet). I will try to figure out a solution here, perhaps embedded Disqus or similar. At the very least, I want there to be the capacity to contact me without absurd spam, because I love answering any questions people may have.&lt;/p&gt;
-
 &lt;p&gt;Lastly, I have several projects in the works, and I&amp;rsquo;m excited to write about them soon. Just a few:&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Work on new (and existing) pinball machines.. Twilight Zone, Doctor Who, NBA Fastbreak, Guns N Roses, and Space Shuttle.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Work on pinball emulation. New projects coming out, as well as getting things running under Linux.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;New programming ventures. I&amp;rsquo;ve been playing with Go and Docker, and enjoying it.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Work on new (and existing) pinball machines.. Twilight Zone, Doctor Who, NBA Fastbreak, Guns N Roses, and Space Shuttle.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Work on pinball emulation. New projects coming out, as well as getting things running under Linux.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;New programming ventures. I&amp;rsquo;ve been playing with Go and Docker, and enjoying it.&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 </description>
      </item>
