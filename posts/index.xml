@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>David Houchin</title>
-    <link>https://www.davidhouchin.com/posts/</link>
+    <link>https://davidhouchin.com/posts/</link>
     <description>Recent content in Posts on David Houchin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright &amp;copy; 2021 David Houchin</copyright>
-    <lastBuildDate>Mon, 25 Jan 2021 10:30:08 -0800</lastBuildDate><atom:link href="https://www.davidhouchin.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Jan 2021 10:30:08 -0800</lastBuildDate><atom:link href="https://davidhouchin.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Visual Pinball X on Linux</title>
-      <link>https://www.davidhouchin.com/posts/vpx-linux/</link>
+      <link>https://davidhouchin.com/posts/vpx-linux/</link>
       <pubDate>Mon, 25 Jan 2021 10:30:08 -0800</pubDate>
       
-      <guid>https://www.davidhouchin.com/posts/vpx-linux/</guid>
+      <guid>https://davidhouchin.com/posts/vpx-linux/</guid>
       <description>&lt;p&gt;Around a year ago or so, I tackled getting &lt;a href=&#34;https://vpinball.com/forums/topic/visual-pinballx-on-linux/&#34;&gt;Visual Pinball running under Linux&lt;/a&gt;. After a &lt;em&gt;lot&lt;/em&gt; of tweaks and debugging, I was able to eventually get pretty good results which is mostly documented there.&lt;br&gt;
 After finally reinstalling a fresh copy of Fedora 33 a couple weeks ago, I setup VPX again and found that things seem to be even simpler than before.&lt;/p&gt;
 &lt;p&gt;Assumptions:&lt;/p&gt;
@@ -78,10 +78,10 @@ I think virtual pinball on Linux is vastly underrepresented. Maybe we could get 
     
     <item>
       <title>Old Posts Re-Uploaded</title>
-      <link>https://www.davidhouchin.com/posts/old-posts-added/</link>
+      <link>https://davidhouchin.com/posts/old-posts-added/</link>
       <pubDate>Sat, 11 Jul 2020 16:28:08 -0700</pubDate>
       
-      <guid>https://www.davidhouchin.com/posts/old-posts-added/</guid>
+      <guid>https://davidhouchin.com/posts/old-posts-added/</guid>
       <description>&lt;p&gt;I finally got the old posts from my old Wordpress site re-uploaded here. There&amp;rsquo;s some technical data that I didn&amp;rsquo;t want to see lost (Although I believe Wayback Machine still archived everything).&lt;/p&gt;
 &lt;p&gt;This was much more tricky than I thought. I backed up the entire site with &lt;a href=&#34;https://wordpress.org/plugins/updraftplus/&#34;&gt;UpdraftPlus&lt;/a&gt;.&lt;br&gt;
 However, while everything was backed up in some way or another, the actual textual content was saved as a MySQL dump, escape characters and all.&lt;/p&gt;
@@ -93,10 +93,10 @@ However, while everything was backed up in some way or another, the actual textu
     
     <item>
       <title>Fixing Gauntlet in MAME</title>
-      <link>https://www.davidhouchin.com/posts/gauntlet/</link>
+      <link>https://davidhouchin.com/posts/gauntlet/</link>
       <pubDate>Fri, 10 Jul 2020 13:00:00 -0700</pubDate>
       
-      <guid>https://www.davidhouchin.com/posts/gauntlet/</guid>
+      <guid>https://davidhouchin.com/posts/gauntlet/</guid>
       <description>&lt;p&gt;&lt;em&gt;This is a repost of an article from my old site originally posted in 2017, in the hopes that the information within still proves useful for somebody.&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;running-mame&#34;&gt;Running MAME&lt;/h2&gt;
 &lt;p&gt;A few days ago, I decided to go ahead and update the MAME setup on my machine. I have a mostly-working MAME cabinet in the arcade, but it still needs some work on the controls and display, not to mention it&amp;rsquo;s not exactly portable. I also didn&amp;rsquo;t know the state of MAME on MacOS. Since I work with my personal laptop now, which is my MacBook, I&amp;rsquo;ve been using MacOS for most of my computing needs outside of work as well.&lt;br&gt;
@@ -105,8 +105,8 @@ After extracting, you can throw ROM files into the roms folder and launch mame64
 &lt;h2 id=&#34;issue-with-gauntlet&#34;&gt;Issue with Gauntlet&lt;/h2&gt;
 &lt;p&gt;Now one of my favorite arcade games has been Gauntlet. I love the tile-based aesthetic of it, the ability to have up to 4 players, and the variety (and amount) of levels in it. Unfortunately, attempting to start it gives me an error right off the bat:&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/gauntlet/gauntlet_mame_error.png&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:60%;max-height:60%;&#34; src=&#34;https://www.davidhouchin.com/img/gauntlet/gauntlet_mame_error.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/gauntlet/gauntlet_mame_error.png&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:60%;max-height:60%;&#34; src=&#34;https://davidhouchin.com/img/gauntlet/gauntlet_mame_error.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -130,8 +130,8 @@ The end result is still a 16KB file.&lt;/p&gt;
 (Update - A comment noted that you can use &lt;a href=&#34;http://frhed.sourceforge.net/en/&#34;&gt;this tool&lt;/a&gt; and use Edit-&amp;gt;Append to add 8192 bytes to the file.)&lt;/p&gt;
 &lt;p&gt;Compress the files back into a gauntlet.zip, and the result should be a working game:&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/gauntlet/gauntlet_mame.png&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://www.davidhouchin.com/img/gauntlet/gauntlet_mame.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/gauntlet/gauntlet_mame.png&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://davidhouchin.com/img/gauntlet/gauntlet_mame.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -145,17 +145,17 @@ I&amp;rsquo;ve also had a lot of interesting projects and restores with classic 
     
     <item>
       <title>Bram Stoker&#39;s Dracula Pinball</title>
-      <link>https://www.davidhouchin.com/posts/bsd/</link>
+      <link>https://davidhouchin.com/posts/bsd/</link>
       <pubDate>Fri, 10 Jul 2020 12:00:00 -0700</pubDate>
       
-      <guid>https://www.davidhouchin.com/posts/bsd/</guid>
+      <guid>https://davidhouchin.com/posts/bsd/</guid>
       <description>&lt;p&gt;&lt;em&gt;This is a repost of an article from my old site originally posted in 2017, in the hopes that the information within still proves useful for somebody.&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
 &lt;p&gt;Most pinball machines manufactured have a &amp;ldquo;killer feature&amp;rdquo;. While there is absolutely a collection of standard features that have been ubiquitous on nearly every machine, almost every game has tried to offer a unique design element of it&amp;rsquo;s very own. &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=2524&#34;&gt;Terminator 2&lt;/a&gt; has it&amp;rsquo;s rotating cannon, &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=310&#34;&gt;Black Knight&lt;/a&gt; has the magna-save, and &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=4032&#34;&gt;Medieval Madness&lt;/a&gt; has it&amp;rsquo;s crumbling castle. For Bram Stoker&amp;rsquo;s Dracula, most people would say that this is the &amp;ldquo;Mist Ball&amp;rdquo; multiball.&lt;/p&gt;
 &lt;p&gt;As a little preface, since I have not to this point written anything on it, Dracula was my first pinball, and certainly the one I&amp;rsquo;ve spent the most time on so far. I love the theme and art style, and as a huge gothic horror and Castlevania fan, it instantly drew me in when deciding on what pinball machine I first wanted. The gameplay feels very rewarding, if notoriously difficult. I&amp;rsquo;ve also tried to bring it into the 21st century with a complete LED overhaul and LED strips, as well as a Color DMD (They did an &lt;a href=&#34;https://www.youtube.com/watch?v=aoWvsoIphbw&#34;&gt;awesome&lt;/a&gt; job with the coloring on this ROM, I &lt;strong&gt;very&lt;/strong&gt; highly recommend it).&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/bsd/attract.gif&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/bsd/attract.gif&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/bsd/attract.gif&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/bsd/attract.gif&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -173,8 +173,8 @@ I&amp;rsquo;ve also had a lot of interesting projects and restores with classic 
 &lt;p&gt;Having a multiball active will score 10 million points on each major shot (i.e. Coffin/Castle Ramp, Mystery Hole, etc). Having 2 active will score 20 million, and 3 Thirrrtttyyyy million! (Really, the voice drags out the 30 in-game, it&amp;rsquo;s quite amusing).&lt;br&gt;
 Castle multiball can be achieved by lighting the castle lock (hitting certain targets), and then shooting the castle ramp. The ramp will redirect the ball, if the lock is lit, to the castle where it gets locked and you start with a new ball. Coffin multiball is started by shooting the coffin ramp enough times to open it, which will then lock balls into the coffin. Castle is supposed to represent you killing Dracula&amp;rsquo;s brides, while coffin is killing Dracula himself.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/bsd/mist2.gif&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/bsd/mist2.gif&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/bsd/mist2.gif&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/bsd/mist2.gif&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -182,8 +182,8 @@ Castle multiball can be achieved by lighting the castle lock (hitting certain ta
 &lt;p&gt;Now mist ball is a 2 ball multiball (the others are 3), which can be started by making enough castle ramps. This will light up the mist ball at the mystery hole. If you then shoot the mystery hole, it will start mist ball. Mist ball is also lit automatically on the last ball of the game for each player.&lt;br&gt;
 When you get mist ball, a second ball will begin moving across the playfield. If you can hit it hard enough to knock it off of it&amp;rsquo;s trajectory, you immediately start Mist Ball multiball. From here, you can start making your vital shots, and try to start the other multiballs if they aren&amp;rsquo;t already going.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/bsd/mist1.gif&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/bsd/mist1.gif&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/bsd/mist1.gif&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/bsd/mist1.gif&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -192,37 +192,37 @@ When you get mist ball, a second ball will begin moving across the playfield. If
 &lt;h2 id=&#34;how-it-works&#34;&gt;How it Works&lt;/h2&gt;
 &lt;p&gt;Underneath the playfield is a motor, a traveling assembly containing an electromagnet (only magnetic when induced with an electrical current), and a long reversing shaft. This allows the magnet to travel bidirectionally.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/bsd/bsd_mist_motor.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/bsd/bsd_mist_motor.jpg&#34; title=&#34;Motor&#34; alt=&#34;Motor&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/bsd/bsd_mist_motor.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/bsd/bsd_mist_motor.jpg&#34; title=&#34;Motor&#34; alt=&#34;Motor&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Motor&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/bsd/bsd_mist_mechanism.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/bsd/bsd_mist_mechanism.jpg&#34; title=&#34;Entire Mechanism&#34; alt=&#34;Entire Mechanism&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/bsd/bsd_mist_mechanism.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/bsd/bsd_mist_mechanism.jpg&#34; title=&#34;Entire Mechanism&#34; alt=&#34;Entire Mechanism&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Entire Mechanism&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/bsd/bsd_magnet_assembly.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/bsd/bsd_magnet_assembly.jpg&#34; title=&#34;Magnet Assembly&#34; alt=&#34;Magnet Assembly&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/bsd/bsd_magnet_assembly.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/bsd/bsd_magnet_assembly.jpg&#34; title=&#34;Magnet Assembly&#34; alt=&#34;Magnet Assembly&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Magnet Assembly&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/bsd/mist3.gif&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/bsd/mist3.gif&#34; title=&#34;Magnet in Action&#34; alt=&#34;Magnet in Action&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/bsd/mist3.gif&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/bsd/mist3.gif&#34; title=&#34;Magnet in Action&#34; alt=&#34;Magnet in Action&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Magnet in Action&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The path can easily be seen on the bottom of the playfield, by the direction of the reversing shaft, but also on the top by simply looking at the green mist graphic. It follows directly above this line.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/bsd/bsd_mist_line.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/bsd/bsd_mist_line.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/bsd/bsd_mist_line.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/bsd/bsd_mist_line.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -231,15 +231,15 @@ When you get mist ball, a second ball will begin moving across the playfield. If
 The magnet is stopped at it&amp;rsquo;s limits by two switches, 81 and 83, (Magnet Left and Magnet Right) that indicate the magnet has reached the end of it&amp;rsquo;s travel.&lt;br&gt;
 There are two pockets on each side of the playfield that can contain a ball. They are closed off by solenoid-operated gates. The game is aware of the ball&amp;rsquo;s location (or absence) through the use of optical sensors in each pocket, which for the left side is switch 52, Opto Magnet L. Pocket.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/bsd/bsd_mist_right_pocket.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/bsd/bsd_mist_right_pocket.jpg&#34; title=&#34;Right Pocket&#34; alt=&#34;Right Pocket&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/bsd/bsd_mist_right_pocket.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/bsd/bsd_mist_right_pocket.jpg&#34; title=&#34;Right Pocket&#34; alt=&#34;Right Pocket&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Right Pocket&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/bsd/bsd_mist_left_pocket.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/bsd/bsd_mist_left_pocket.jpg&#34; title=&#34;Left Pocket&#34; alt=&#34;Left Pocket&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/bsd/bsd_mist_left_pocket.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/bsd/bsd_mist_left_pocket.jpg&#34; title=&#34;Left Pocket&#34; alt=&#34;Left Pocket&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Left Pocket&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -247,8 +247,8 @@ There are two pockets on each side of the playfield that can contain a ball. The
 &lt;p&gt;How does the game know if the ball is still sitting on top of the magnet or not? There is actually a special infrared sensor (Switch 82, Ball-On-Magnet) that transmits from the right pocket into a receiver on the left side. This beam is normally obstructed by the ball, so it is actually switched on when the beam makes contact (like when the ball is knocked off it&amp;rsquo;s path by the active ball).&lt;/p&gt;
 &lt;p&gt;This sensor is controlled by a special board just for it, that is only used in a couple other games (I believe &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=4458&#34;&gt;Star Wars Episode I&lt;/a&gt; and &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=2528&#34;&gt;The Shadow&lt;/a&gt;).&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/bsd/24opto_schematic.png&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/bsd/24opto_schematic.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/bsd/24opto_schematic.png&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/bsd/24opto_schematic.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -256,8 +256,8 @@ There are two pockets on each side of the playfield that can contain a ball. The
 &lt;p&gt;The manual labels this chipset as the &amp;ldquo;24-Switch Opto Assembly&amp;rdquo;, but it&amp;rsquo;s more than likely that they meant &amp;ldquo;24-inch Opto Assembly&amp;rdquo;, as the optical sensor operates over a much longer distance than the normal sensors do. It was probably mixed up with the &amp;ldquo;10-Switch Opto Assembly&amp;rdquo;, which actually does manage multiple optos.&lt;/p&gt;
 &lt;p&gt;The ball is &amp;ldquo;loaded&amp;rdquo; into the right magnet pocket by lifting up the ramp in the shooter lane, and shooting the ball down this lane instead. If you are in the middle of a game, it can look a little confusing for new players to see a ball loaded into the shooter lane (you may think you are getting a ball saved from multiball or something), but it instead shoots underneath the ramp to the right ramp pocket.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/bsd/bsd_shooter_ramp.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/bsd/bsd_shooter_ramp.jpg&#34; title=&#34;This metal ramp is lifted up&#34; alt=&#34;This metal ramp is lifted up&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/bsd/bsd_shooter_ramp.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/bsd/bsd_shooter_ramp.jpg&#34; title=&#34;This metal ramp is lifted up&#34; alt=&#34;This metal ramp is lifted up&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;This metal ramp is lifted up&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -280,8 +280,8 @@ There are two pockets on each side of the playfield that can contain a ball. The
 &lt;/ul&gt;
 &lt;p&gt;You can run the steps in sequence, or repeat a test until stopped. During these tests, a status display is shown on the DMD that indicates the state of the various related components of the system. Here is an excerpt from the manual chapter on the Magnet Test:&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/bsd/magnet_test_dmd.png&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/bsd/magnet_test_dmd.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/bsd/magnet_test_dmd.png&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/bsd/magnet_test_dmd.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -296,15 +296,15 @@ There are two pockets on each side of the playfield that can contain a ball. The
 &lt;p&gt;After a good amount of research, I kept running into a replacement board manufactured by Homepin, an Australian group (single or multiple person?) that creates replacement PCBs for pinball machines using newer parts and more reliable designs. This board was a completely reimplemented version of the 24 Opto Board, but with more reliable components and a few additional features. The problem was that the initial manufacturing run was several years back, and I couldn&amp;rsquo;t find one for sale anywhere. I even emailed a few online stores to see if they had any in stock.. no luck.&lt;/p&gt;
 &lt;p&gt;I found an expired ad on Pinside (over a year old) for the replacement chip that had gone unsold. I messaged the user, and to my surprise, they still had it and were willing to sell! Back in action, I received the new board and installed it. The magnet immediately worked as expected. Success! As a bonus, the new board even has a nifty LED that lets you know if the beam is connecting or not.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/bsd/24opto_original.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/bsd/24opto_original.jpg&#34; title=&#34;Original Board&#34; alt=&#34;Original Board&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/bsd/24opto_original.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/bsd/24opto_original.jpg&#34; title=&#34;Original Board&#34; alt=&#34;Original Board&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Original Board&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/bsd/24opto_replacement.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/bsd/24opto_replacement.jpg&#34; title=&#34;Replacement Board&#34; alt=&#34;Replacement Board&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/bsd/24opto_replacement.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/bsd/24opto_replacement.jpg&#34; title=&#34;Replacement Board&#34; alt=&#34;Replacement Board&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Replacement Board&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -312,8 +312,8 @@ There are two pockets on each side of the playfield that can contain a ball. The
 &lt;h3 id=&#34;switch-column&#34;&gt;Switch Column&lt;/h3&gt;
 &lt;p&gt;Not too long ago, I ran into the magnet not working once again. Lifting up the playfield, I was able to quickly test the optical sensor did indeed work, thanks to the LED on the new replacement board. It did not register on the game&amp;rsquo;s switch matrix test. That means that while the component itself was working, I had an issue somewhere else up the chain. Looking at the switch matrix, I noticed that there were several other switches on the same column, including the middle bank of three targets. Testing them, I confirmed that they did not work. Furthermore, looking underneath the right target revealed a wire that had come loose. A quick re-solder, and the game was fully functional again. Thanks to the new board, I was able to quickly switch my diagnosis to somewhere else, instead of focusing incorrectly on the opto and it&amp;rsquo;s new chip.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/bsd/bsd_target_bank_switch.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/bsd/bsd_target_bank_switch.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/bsd/bsd_target_bank_switch.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/bsd/bsd_target_bank_switch.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -327,8 +327,8 @@ There are two pockets on each side of the playfield that can contain a ball. The
 &lt;p&gt;It looks like &lt;a href=&#34;https://www.pinballlife.com/24-opto-replacement-board-a-15646.html&#34;&gt;PinballLife.com has these in stock&lt;/a&gt; at the moment, good news for anyone else searching for the boards.&lt;br&gt;
 I haven&amp;rsquo;t had any issues in the past 2 years with the board I&amp;rsquo;ve ordered.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/bsd/bsd_playfield_up.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/bsd/bsd_playfield_up.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/bsd/bsd_playfield_up.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/bsd/bsd_playfield_up.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -338,23 +338,23 @@ I haven&amp;rsquo;t had any issues in the past 2 years with the board I&amp;rsqu
     
     <item>
       <title>Space Shuttle Pinball</title>
-      <link>https://www.davidhouchin.com/posts/ss/</link>
+      <link>https://davidhouchin.com/posts/ss/</link>
       <pubDate>Fri, 10 Jul 2020 11:00:00 -0700</pubDate>
       
-      <guid>https://www.davidhouchin.com/posts/ss/</guid>
+      <guid>https://davidhouchin.com/posts/ss/</guid>
       <description>&lt;p&gt;&lt;em&gt;This is a repost of an article from my old site originally posted in 2017, in the hopes that the information within still proves useful for somebody.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;This last weekend, we visited the &lt;a href=&#34;http://www.nwpinballshow.com/&#34;&gt;Northwest Pinball and Arcade Show&lt;/a&gt; for a little bit. We had a great time, played a ton of games I haven&amp;rsquo;t touched until now, and got to meet and grab a picture with Steve Ritchie (Out of my games, designer of Terminator 2, and the voice in Space Shuttle)! I may make a post on what I thought about it, but I did indeed enjoy it - for the most part.The highlight of the day, however, was getting my best break in pinball purchasing so far. Just before leaving for the show, my awesome friend tipped me off to a &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=2260&#34;&gt;Space Shuttle&lt;/a&gt; that had been put up not 10 minutes earlier on OfferUp! The seller had only posted one somewhat low-res picture, but it was a short detour from the show and they were only asking $600. I&amp;rsquo;ve been not only wanting an 80s solid-state for my next machine, but I was specifically looking for a space themed one, and Space Shuttle was at the top of my list. I had to at least check it out, so I called immediately and asked about coming up to look at it. We rounded back and grabbed my tools/lift-cart/moving blankets (don&amp;rsquo;t want to ding up the car like Cannes, my 70s game, did&amp;hellip;).&lt;/p&gt;
 &lt;h2 id=&#34;the-pickup&#34;&gt;The Pickup&lt;/h2&gt;
 &lt;p&gt;&lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/ss/ss_initial.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/ss/ss_initial.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/ss/ss_initial.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/ss/ss_initial.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;br&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/ss/ss_initial_lit.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/ss/ss_initial_lit.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/ss/ss_initial_lit.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/ss/ss_initial_lit.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -374,15 +374,15 @@ There was no serious damage and no chunks missing out of the cabinet. The playfi
 &lt;p&gt;Checking online, I can&amp;rsquo;t immediately find any for sale besides $275 at &lt;a href=&#34;http://www.marcospecialties.com/pinball-parts/31-1315-535&#34;&gt;Marco Specialties&lt;/a&gt;. Hm.. maybe I should have grabbed the one from the show.. Oh well. I will need to keep my eye out for this one.&lt;br&gt;
 I tape down the remaining flakes (they are literally falling off as I take down the backglass) with some clear tape to try to hold their position and minimize further flaking/tearing for now.&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/ss/ss_backglass_back.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:40%;max-height:40%;&#34; src=&#34;https://www.davidhouchin.com/img/ss/ss_backglass_back.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/ss/ss_backglass_back.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:40%;max-height:40%;&#34; src=&#34;https://davidhouchin.com/img/ss/ss_backglass_back.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;br&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/ss/ss_backglass_front.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:40%;max-height:40%;&#34; src=&#34;https://www.davidhouchin.com/img/ss/ss_backglass_front.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/ss/ss_backglass_front.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:40%;max-height:40%;&#34; src=&#34;https://davidhouchin.com/img/ss/ss_backglass_front.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -390,54 +390,54 @@ I tape down the remaining flakes (they are literally falling off as I take down 
 &lt;p&gt;With the exception of the bottom area, the rest of the backglass actually looks great. If I am able to get this replaced, I would have no qualms about hanging the old backglass (with perhaps further protection or something to block the bottom section) as wall art.&lt;/p&gt;
 &lt;p&gt;I take a close look at the backbox circuitry, but once again do not notice anything that reaches out to me as damaged.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/ss/ss_boards.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://www.davidhouchin.com/img/ss/ss_boards.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/ss/ss_boards.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://davidhouchin.com/img/ss/ss_boards.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;playfield&#34;&gt;Playfield&lt;/h2&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/ss/ss_playfield.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://www.davidhouchin.com/img/ss/ss_playfield.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/ss/ss_playfield.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://davidhouchin.com/img/ss/ss_playfield.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Pulling off the glass, I can see the playfield up close and take a few pictures of the critical areas. By far, the worst areas are the bumpers and lanes above them, and the entrance to the shuttle ramp.You can see that the playfield is worn away above the S insert, and directly above the bottom pop bumper. For the ramp, the drop-down target is obscuring it, but there is some wear directly behind it.&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/ss/ss_wear_ramp.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/ss/ss_wear_ramp.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/ss/ss_wear_ramp.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/ss/ss_wear_ramp.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;br&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/ss/ss_wear_bumpers.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/ss/ss_wear_bumpers.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/ss/ss_wear_bumpers.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/ss/ss_wear_bumpers.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/p&gt;
 &lt;p&gt;The main playfield with it&amp;rsquo;s huge bank of inserts is actually looking great. Contrast this with one of the Space Shuttles I saw at the show. The game had great lighting, nice cabinet and backglass, but the playfield was pretty torn up!&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/ss/ss_playfield_close.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/ss/ss_playfield_close.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/ss/ss_playfield_close.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/ss/ss_playfield_close.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;br&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/ss/ss_from_show.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/ss/ss_from_show.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/ss/ss_from_show.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/ss/ss_from_show.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/p&gt;
 &lt;p&gt;There are no cracked or broken plastics at all, and the few slightly warped ones can be repaired with some heat.The Shuttle toy is looking a little beat up. The wing with the flag is broken, and there&amp;rsquo;s some damage near the nose. It&amp;rsquo;s also yellowed pretty significantly. I may need to find a replacement for this, or repair and repaint it, then get new decals.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/ss/ss_shuttle.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/ss/ss_shuttle.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/ss/ss_shuttle.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/ss/ss_shuttle.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -445,22 +445,22 @@ I tape down the remaining flakes (they are literally falling off as I take down 
 &lt;h2 id=&#34;under-playfieldinside-cabinet&#34;&gt;Under Playfield/Inside Cabinet&lt;/h2&gt;
 &lt;p&gt;Lifting it up, I look for any obvious issues that will need to be addressed. I already know I&amp;rsquo;m going to need to clean or replace the coil that loads the balls into the shooter lane. I will probably rebuild the flippers as well, since they are misaligned and weak, and I really could use the experience.&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/ss/ss_playfield_up.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/ss/ss_playfield_up.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/ss/ss_playfield_up.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/ss/ss_playfield_up.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;br&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/ss/ss_flipper_coil.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/ss/ss_flipper_coil.jpg&#34; title=&#34;Flipper Coil&#34; alt=&#34;Flipper Coil&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/ss/ss_flipper_coil.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/ss/ss_flipper_coil.jpg&#34; title=&#34;Flipper Coil&#34; alt=&#34;Flipper Coil&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Flipper Coil&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;br&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/ss/ss_loader_coil.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/ss/ss_loader_coil.jpg&#34; title=&#34;Loader Coil&#34; alt=&#34;Loader Coil&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/ss/ss_loader_coil.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/ss/ss_loader_coil.jpg&#34; title=&#34;Loader Coil&#34; alt=&#34;Loader Coil&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Loader Coil&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -497,10 +497,10 @@ Seriously, the 3 Space Shuttles on eBay right now are $8000, $3600, and $3500.. 
     
     <item>
       <title>Terminator 2 Pinball</title>
-      <link>https://www.davidhouchin.com/posts/t2/</link>
+      <link>https://davidhouchin.com/posts/t2/</link>
       <pubDate>Fri, 10 Jul 2020 00:10:00 -0700</pubDate>
       
-      <guid>https://www.davidhouchin.com/posts/t2/</guid>
+      <guid>https://davidhouchin.com/posts/t2/</guid>
       <description>&lt;p&gt;&lt;em&gt;This is a repost of an article from my old site originally posted in 2017, in the hopes that the information within still proves useful for somebody.&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
 &lt;p&gt;Just a few days ago, I received &lt;a href=&#34;http://www.ipdb.org/machine.cgi?id=2524&#34;&gt;Terminator 2&lt;/a&gt;. This machine is awesome! Talk about a powerhouse packed with great sounds and visuals, alongside easy-to-pick-up gameplay and an instantly recognizable theme.&lt;br&gt;
@@ -510,8 +510,8 @@ I assume that the reader is unaware of most pinball/video game technical concept
 &lt;h2 id=&#34;initial-observations&#34;&gt;Initial Observations&lt;/h2&gt;
 &lt;p&gt;Immediately after being dropped off and before the driver leaves, I power it on. Everything seems to light up, and I could hear the thudding sound of the T2 logo intro. Cabinet looks alright.. A few dings, some fading on the right side.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_initial.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_initial.jpg&#34; title=&#34;I need your clothes, your boots, and your motorcyle.&#34; alt=&#34;I need your clothes, your boots, and your motorcyle.&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_initial.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_initial.jpg&#34; title=&#34;I need your clothes, your boots, and your motorcyle.&#34; alt=&#34;I need your clothes, your boots, and your motorcyle.&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;I need your clothes, your boots, and your motorcyle.&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -523,8 +523,8 @@ I assume that the reader is unaware of most pinball/video game technical concept
 &lt;p&gt;For casual readers that are unaware of what the switch matrix may be, it&amp;rsquo;s an array that drives all the switches in a solid-state pinball game.Generally, these are rollover switches, but can be anything from the flipper buttons, to an optical sensor (generally called optos) that is checking if a ball is physically blocking the beam (and hence is positioned in a certain spot).&lt;br&gt;
 The way it works is by using a number of rows and columns to read switches instead of a large number of individual circuits. The columns are pulsed at a rate of 500 per second, while the rows are constant. When a switch is engaged, and that column is pulsed, the current returns back through the row to an input on the main board, and the CPU knows that the switch at that row and column is activated.&lt;br&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_switch_matrix.png&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_switch_matrix.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_switch_matrix.png&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_switch_matrix.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -532,37 +532,37 @@ The way it works is by using a number of rows and columns to read switches inste
 &lt;/blockquote&gt;
 &lt;p&gt;Continuing on, I can enter the service tests menu and check the switch edge test. I can tell that the outhole and trough switches are not responding. Let&amp;rsquo;s lift up the playfield (make sure to pull out the pinballs! I find an extending magnet to be perfect for pulling these out, and just overall useful) and see if something came undone on the wiring here. This also gives us a chance to check out the inside of the cabinet some more.&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_playfield_up.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_playfield_up.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_playfield_up.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_playfield_up.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;br&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_playfield_up_close.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_playfield_up_close.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_playfield_up_close.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_playfield_up_close.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;br&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_cab_bottom.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_cab_bottom.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_cab_bottom.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_cab_bottom.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/p&gt;
 &lt;p&gt;I don&amp;rsquo;t see anything immediately noticeable with the under-playfield wiring. Moving on to the backbox, we can remove the backglass and speaker panel to see what&amp;rsquo;s going on with the circuit boards. According to the switch matrix diagram in the manual, I can see that every switch in the column is not responding, which happens to include everything in the ball drain and trough. I can also see that the column connector is J206. These are numbered on the PCB for us, so we can check which connector is going where.&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_boards.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_boards.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_boards.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_boards.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;br&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_behind_dmd.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_behind_dmd.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_behind_dmd.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_behind_dmd.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -574,8 +574,8 @@ The way it works is by using a number of rows and columns to read switches inste
 &lt;/ol&gt;
 &lt;p&gt;For #1, cabinet switches actually go to a whole &amp;lsquo;nother connector at J212.. confused yet? Although I didn&amp;rsquo;t immediately deduce it at the time, this should have clearly indicated to me that there was some issue with columns connector for playfield switches. Plus it has a nifty little label right above it.. cabinet switches&amp;hellip;Regarding #2, the connectors J206/J207 and J208/J209 are supposed to be electrically the same, and thus interchangeable. I haven&amp;rsquo;t really tested it, but you can see that the traces seem to connect both connectors, and the schematic for the WPC89 CPU board does show them connected.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/cab_switch_schematic.png&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/cab_switch_schematic.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/cab_switch_schematic.png&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/t2/cab_switch_schematic.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -587,8 +587,8 @@ Ok.. well the rest of the game seems to work. The playfield is in great shape, a
 Nothing happens. The cannon hits the bottom of it&amp;rsquo;s arc, swings back up, and automatically fires the ball (at the wrong target). Seriously? I just used the trigger to launch the ball.. and proceed to do so again.&lt;br&gt;
 I start to notice that a number of LEDs are not working. The outlanes don&amp;rsquo;t light up, some of the skill shot targets don&amp;rsquo;t seem to light up, and I look up and notice that 2/3 of the back board GI (general illumination) isn&amp;rsquo;t lit (Anymore? I was almost positive these were lit when I first powered it on). This time, when the ball enters the cannon.. it doesn&amp;rsquo;t fire at all. In fact, the cannon just stops back upwards at home with the ball still in it!I go ahead and enter service mode, and fire up the solenoid test to verify this, moving it to solenoid 2 (Gun Kicker). Sure enough, nothing happens.To top it all off, there&amp;rsquo;s something wacko going on with the DMD (Dot-matrix Display). There&amp;rsquo;s some weird corruption going on. Although most animations are only affected to a small degree, some displays, like the score itself, have been majorly affected:&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_dmd_corruption.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_dmd_corruption.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_dmd_corruption.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_dmd_corruption.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -604,8 +604,8 @@ I start to notice that a number of LEDs are not working. The outlanes don&amp;rs
 &lt;h2 id=&#34;lighting-issues&#34;&gt;Lighting Issues&lt;/h2&gt;
 &lt;p&gt;Well, the lighting looks like the easiest to dive into, so I pull the backbox open again and take a look at the lighting circuits. Tracing the main cabling from the backbox panel back to the power driver board, I notice the rest of the backbox lighting flip on for a second. Hm, so it is wiring! Following it to connector J120, I tweak the connector a bit, then pull it out and reseat it. I also do connector J121. The playfield and backbox GI lighting can use both of these connections. In fact, they&amp;rsquo;re linked!&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_lighting_connectors.png&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:20%;max-height:20%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_lighting_connectors.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_lighting_connectors.png&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:20%;max-height:20%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_lighting_connectors.png&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -616,8 +616,8 @@ I start to notice that a number of LEDs are not working. The outlanes don&amp;rs
 &lt;h2 id=&#34;diagnosing-the-cannon&#34;&gt;Diagnosing the Cannon&lt;/h2&gt;
 &lt;p&gt;Hey, we&amp;rsquo;ve got some of those issues out the way pretty easily. Let&amp;rsquo;s see if the cannon is something bigger. &amp;ldquo;Gun&amp;rdquo; and &amp;ldquo;Cannon&amp;rdquo; here will refer to the same device.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_cannon.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_cannon.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_cannon.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_cannon.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -632,22 +632,22 @@ Well, it turns out that there a number of switches related to the cannon that af
 &lt;li&gt;&lt;strong&gt;Gun Home&lt;/strong&gt; - The same disc from above has a rod that protrudes from it. When the disc rotates enough, the rod hits this switch, signifying that the gun has reached it&amp;rsquo;s home &amp;ldquo;rest&amp;rdquo; position and can stop.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_gun_mech1.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_gun_mech1.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_gun_mech1.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_gun_mech1.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;br&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_gun_mech2.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_gun_mech2.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_gun_mech2.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_gun_mech2.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;br&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_gun_mech3.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_gun_mech3.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_gun_mech3.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_gun_mech3.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -657,8 +657,8 @@ The Up button manually moves it to each position (You can release the button and
 The Enter button will actually fire the cannon solenoid, so feel free to place a ball in the cannon and fire it off (don&amp;rsquo;t destroy your plastics).
 Note that when you leave the Gun Test menu, the game will calibrate the gun for a little bit by running it through it&amp;rsquo;s cycle numerous times. It&amp;rsquo;s natural for this to take a minute or two.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_gun_test.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_gun_test.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_gun_test.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_gun_test.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -667,8 +667,8 @@ Note that when you leave the Gun Test menu, the game will calibrate the gun for 
 By adjusting the two screws on the bottom of the mark switch (seen in the left two pictures), I can slide the switch a little further down the arm so that it hits that depression sooner.&lt;br&gt;
 With a little adjustment and test firing, I get the mark position properly set up to hit the correct position as prescribed by the manual: &amp;ldquo;the bottom of the left ramp and above the Top Stand-up 5-bank Target.&amp;rdquo;&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_gun_aim.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_gun_aim.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_gun_aim.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_gun_aim.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -695,60 +695,60 @@ This can essentially be used to create very fast electromechanical actuators tha
 On the inside of the coil is a plastic tube that separates the rod and coil called the coil sleeve.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_plunger_coil.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_plunger_coil.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_plunger_coil.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_plunger_coil.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_dirty_coil_sleeve.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_dirty_coil_sleeve.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_dirty_coil_sleeve.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_dirty_coil_sleeve.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/p&gt;
 &lt;p&gt;Pulling the plunger coil apart, I found that the coil sleeve inside of it was pretty filthy. A combination of heat, current, and grease will draw all kinds of grime into the coil, and with that much interference, it could very well affect the performance (or at least that&amp;rsquo;s my idea). I replace it with a new sleeve, reinstall the components and try a new game. Same thing.&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_old_plunger_coil.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_old_plunger_coil.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_old_plunger_coil.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_old_plunger_coil.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_new_plunger_coil.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_new_plunger_coil.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_new_plunger_coil.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_new_plunger_coil.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/p&gt;
 &lt;p&gt;Alright, maybe it&amp;rsquo;s the coil? I went ahead and desoldered the old coil, and soldered in a new one. Same thing..  I posted online, and was suggested to modify the shooter lane ball guide, to angle it downwards in order to compensate for the shot. After getting behind the guide, I can see that it screwed down twice, and after unscrewing it and manually pushing it downwards during a bunch of test shots, I determine that the ball guide would have to essentially be moved over a entire screw-hole&amp;rsquo;s length down. I figure that that amount of modification to just achieve the intended skill shot was more than I was willing to do, and decided to look back to see if there was something I missed.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_shooter_lane.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_shooter_lane.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_shooter_lane.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_shooter_lane.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Looking closely at the plunger during firing, I noticed that it moved slightly. I was also able to move it slightly side-to-side with my hand. With the potential to move, the plunger can hit the ball off-center, or not at full power. I also noticed that the metal plate in front of the plunger appeared to be bent, and confirmed this with the manual. I also went ahead and tightened down the entire assembly to the best of my ability.&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_plunger_bracket_bent.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_plunger_bracket_bent.jpg&#34; title=&#34;Yes, I put the sleeve in backwards here.&#34; alt=&#34;Yes, I put the sleeve in backwards here.&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_plunger_bracket_bent.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_plunger_bracket_bent.jpg&#34; title=&#34;Yes, I put the sleeve in backwards here.&#34; alt=&#34;Yes, I put the sleeve in backwards here.&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;Yes, I put the sleeve in backwards here.&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;br&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_plunger_bracket_fixed.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_plunger_bracket_fixed.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_plunger_bracket_fixed.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_plunger_bracket_fixed.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_plunger_bracket_mount.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_plunger_bracket_mount.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_plunger_bracket_mount.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_plunger_bracket_mount.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -758,8 +758,8 @@ On the inside of the coil is a plastic tube that separates the rod and coil call
 &lt;h3 id=&#34;profanity-rom&#34;&gt;Profanity ROM&lt;/h3&gt;
 &lt;p&gt;Hey, you&amp;rsquo;ve read this far! You&amp;rsquo;re a trooper. Here&amp;rsquo;s a couple other random things I found while working on the machine.I wasn&amp;rsquo;t really thinking about it when I bought it, but turns out the machine was equipped with the profanity ROM. What? Profanity? Barely. When getting the database shot, the screen cycles through a list of randomized awards (100K points, light hurry up, video mode, etc..). What this modded ROM supposedly does is add Arnold&amp;rsquo;s response of &amp;ldquo;F*ck you A**hole&amp;rdquo; as one of the awards. That&amp;rsquo;s great and all, but I thought it added a bit more! Note: in order to see the option, you need Profanity turned on in the feature adjustments, and will need the game set on free play.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_profanity_rom.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_profanity_rom.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_profanity_rom.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_profanity_rom.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -771,16 +771,16 @@ The guys at Williams loved it, and included it in a private ROM for the database
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;lighting-woes&#34;&gt;Lighting Woes&lt;/h3&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_lit_playfield.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_lit_playfield.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_lit_playfield.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_lit_playfield.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;I mentioned that a few of the LEDs on the machine were still misbehaving after I fixed the bulk GI issue. This is an unfortunate issue with most pinball machines as they get old, and the wiring can get a little long in the tooth. What doesn&amp;rsquo;t help is that LEDs do not do variable brightness very well, so typically respond to voltage changes by becoming extremely dim, or just turning off.While it can be frustrating, there are a few things you can do about it. Sometimes the lights themselves just need to be tweaked with a bit. They may not be making proper contact with the socket. I&amp;rsquo;ve had lights that seem to just operate fine once pulled slightly out or rotated a bit. The problem with this is that vibrations and movement in the cabinet can just push them back to their prior position.You can use a steel brush to clean the contacts, or a pencil eraser. It&amp;rsquo;s unlikely, but the connections may need to be reflowed (the solder heated up and cooled down again to make a better connection). This was the case in one of the GI sockets on T2 for me.There&amp;rsquo;s also the possibility that the wiring itself is off as well. I had consistent issues with the left stand-up targets. Reseating the connector and securing one of the wires a little more solidly into the connector fixed the consistently out bottom light.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_standup_target_lights.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_standup_target_lights.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_standup_target_lights.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:35%;max-height:35%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_standup_target_lights.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -788,8 +788,8 @@ The guys at Williams loved it, and included it in a private ROM for the database
 &lt;h3 id=&#34;skull-drop-target&#34;&gt;Skull Drop Target&lt;/h3&gt;
 &lt;p&gt;When you want to hit the skull on the playfield to get the ball into the cannon and start multi-ball or score jackpot, you usually have to hit it twice. This is to first hit the drop target and knock it down, and then to actually enter the skull. My game has been occasionally getting the ball stuck right above the drop target, because it isn&amp;rsquo;t dropping far enough, and I have no choice but to sit and wait for a Ball Search.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;a href=&#34;https://www.davidhouchin.com/img/t2/t2_skull_drop_target.jpg&#34; target=&#34;_blank&#34;&gt;
-    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://www.davidhouchin.com/img/t2/t2_skull_drop_target.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
+  &lt;a href=&#34;https://davidhouchin.com/img/t2/t2_skull_drop_target.jpg&#34; target=&#34;_blank&#34;&gt;
+    &lt;img style=&#34;max-width:50%;max-height:50%;&#34; src=&#34;https://davidhouchin.com/img/t2/t2_skull_drop_target.jpg&#34; title=&#34;&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   &lt;figcaption style=&#34;font-size:0.8rem;&#34;&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -813,10 +813,10 @@ As for mods, there&amp;rsquo;s couple that I&amp;rsquo;d like to try with T2, bu
     
     <item>
       <title>New Site</title>
-      <link>https://www.davidhouchin.com/posts/new-site/</link>
+      <link>https://davidhouchin.com/posts/new-site/</link>
       <pubDate>Fri, 07 Feb 2020 22:10:32 -0800</pubDate>
       
-      <guid>https://www.davidhouchin.com/posts/new-site/</guid>
+      <guid>https://davidhouchin.com/posts/new-site/</guid>
       <description>&lt;p&gt;Welcome to my new site. I&amp;rsquo;ve decided for a while that I should probably move away from WordPress and server-side websites for a while. Moreso for ease-of-hosting and my sanity than anything else. I also decided that I should distill the site a little more to my hobbies only.&lt;/p&gt;
 &lt;p&gt;I created this with &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;, mainly because it seemed very fast (it is) and is written in Go. I haven&amp;rsquo;t been disappointed so far. I&amp;rsquo;m using a hacked up copy of the &lt;a href=&#34;https://github.com/funkydan2/hugo-kiera&#34;&gt;Kiera&lt;/a&gt; theme, which I will try to clean up as I have more time.&lt;/p&gt;
 &lt;p&gt;I &lt;em&gt;am&lt;/em&gt; going to move the posts that I created regarding some of my work on pinball machines to this site in the near future, as they have been helpful to several people and I want to make sure that knowledge is still available.&lt;/p&gt;

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>David Houchin</title>
-    <link>https://www.davidhouchin.com/</link>
+    <link>https://davidhouchin.com/</link>
     <description>Recent content on David Houchin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright &amp;copy; 2021 David Houchin</copyright>
-    <lastBuildDate>Mon, 25 Jan 2021 10:30:08 -0800</lastBuildDate><atom:link href="https://www.davidhouchin.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Jan 2021 10:30:08 -0800</lastBuildDate><atom:link href="https://davidhouchin.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Posts</title>
-      <link>https://www.davidhouchin.com/posts/</link>
+      <link>https://davidhouchin.com/posts/</link>
       <pubDate>Mon, 25 Jan 2021 10:30:08 -0800</pubDate>
       
-      <guid>https://www.davidhouchin.com/posts/</guid>
+      <guid>https://davidhouchin.com/posts/</guid>
       <description></description>
     </item>
     
