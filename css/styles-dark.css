@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: "Arvo", serif;
+  font-family: "Nanum Myeongjo", serif;
   color: #ffffff;
   background: #2A2829;
 }
@@ -14,7 +14,7 @@ h4,
 h5,
 h6,
 time {
-  font-family: "Roboto Slab", serif;
+  font-family: "Crimson Text", serif;
 }
 
 #container {

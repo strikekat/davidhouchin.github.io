@@ -7,10 +7,78 @@
    <generator>Hugo -- gohugo.io</generator>
    <language>en-us</language>
    <copyright>Copyright &amp;copy; 2020 David Houchin</copyright>
-   <lastBuildDate>Sat, 11 Jul 2020 16:28:08 -0700</lastBuildDate>
+   <lastBuildDate>Mon, 25 Jan 2021 10:30:08 -0800</lastBuildDate>
    
        <atom:link href="http://www.davidhouchin.com/posts/index.xml" rel="self" type="application/rss+xml" />
    
+   
+     <item>
+       <title>Visual Pinball X on Linux</title>
+       <link>http://www.davidhouchin.com/posts/vpx-linux/</link>
+       <pubDate>Mon, 25 Jan 2021 10:30:08 -0800</pubDate>
+       
+       <guid>http://www.davidhouchin.com/posts/vpx-linux/</guid>
+       <description>&lt;p&gt;Around a year ago or so, I tackled getting &lt;a href=&#34;https://vpinball.com/forums/topic/visual-pinballx-on-linux/&#34;&gt;Visual Pinball running under Linux&lt;/a&gt;. After a &lt;em&gt;lot&lt;/em&gt; of tweaks and debugging, I was able to eventually get pretty good results which is mostly documented there.&lt;br&gt;
+After finally reinstalling a fresh copy of Fedora 33 a couple weeks ago, I setup VPX again and found that things seem to be even simpler than before.&lt;/p&gt;
+&lt;p&gt;Assumptions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You have Steam and the Proton 5.13 runtime installed. You can run any game and force compatibility to Proton 5.13 to download it. (You could use regular Wine + DXVK without Steam, but it&amp;rsquo;ll likely need a few different dependencies)&lt;/li&gt;
+&lt;li&gt;You are running a fairly vanilla install of VPX. I have not tried custom VPinMAME builds, external DMDs, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Install the &lt;code&gt;winetricks&lt;/code&gt; package for your distro.&lt;/li&gt;
+&lt;li&gt;Create a directory to hold your VPX install. In this folder, create a &lt;code&gt;prefix&lt;/code&gt; directory.&lt;/li&gt;
+&lt;li&gt;Download the VPX installer for 10.6 and place in the VPX directory.&lt;/li&gt;
+&lt;li&gt;Create a &lt;code&gt;run.sh&lt;/code&gt; script with these contents (Replace your directories as needed):&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#5f8700&#34;&gt;#!/bin/sh
+&lt;/span&gt;&lt;span style=&#34;color:#5f8700&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color:#4e4e4e&#34;&gt;# proton distribution directory:&lt;/span&gt;
+&lt;span style=&#34;color:#0087ff&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#0087ff&#34;&gt;W&lt;/span&gt;=&lt;span style=&#34;color:#00afaf&#34;&gt;&amp;#34;/home/USER/.local/share/Steam/steamapps/common/Proton 5.13/dist&amp;#34;&lt;/span&gt;
+
+&lt;span style=&#34;color:#4e4e4e&#34;&gt;# create a prefix folder in game dir&lt;/span&gt;
+&lt;span style=&#34;color:#4e4e4e&#34;&gt;# WINEPREFIX must be absolute:&lt;/span&gt;
+&lt;span style=&#34;color:#0087ff&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#0087ff&#34;&gt;WINEPREFIX&lt;/span&gt;=/home/USER/games/vpx/prefix
+
+&lt;span style=&#34;color:#4e4e4e&#34;&gt;###&lt;/span&gt;
+&lt;span style=&#34;color:#0087ff&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#0087ff&#34;&gt;WINEVERPATH&lt;/span&gt;=&lt;span style=&#34;color:#0087ff&#34;&gt;$W&lt;/span&gt;
+&lt;span style=&#34;color:#0087ff&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#0087ff&#34;&gt;PATH&lt;/span&gt;=&lt;span style=&#34;color:#0087ff&#34;&gt;$W&lt;/span&gt;/bin:&lt;span style=&#34;color:#0087ff&#34;&gt;$PATH&lt;/span&gt;
+&lt;span style=&#34;color:#0087ff&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#0087ff&#34;&gt;WINESERVER&lt;/span&gt;=&lt;span style=&#34;color:#0087ff&#34;&gt;$W&lt;/span&gt;/bin/wineserver
+&lt;span style=&#34;color:#0087ff&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#0087ff&#34;&gt;WINELOADER&lt;/span&gt;=&lt;span style=&#34;color:#0087ff&#34;&gt;$W&lt;/span&gt;/bin/wine
+&lt;span style=&#34;color:#0087ff&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#0087ff&#34;&gt;WINEDLLPATH&lt;/span&gt;=&lt;span style=&#34;color:#0087ff&#34;&gt;$W&lt;/span&gt;/lib/wine/fakedlls
+&lt;span style=&#34;color:#0087ff&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#0087ff&#34;&gt;LD_LIBRARY_PATH&lt;/span&gt;=&lt;span style=&#34;color:#00afaf&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#0087ff&#34;&gt;$W&lt;/span&gt;&lt;span style=&#34;color:#00afaf&#34;&gt;/lib:&lt;/span&gt;&lt;span style=&#34;color:#0087ff&#34;&gt;$LD_LIBRARY_PATH&lt;/span&gt;&lt;span style=&#34;color:#00afaf&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#4e4e4e&#34;&gt;###&lt;/span&gt;
+
+wine VPX6setup.exe
+wine VPinMAME/Setup.exe
+winetricks dinput
+&lt;span style=&#34;color:#4e4e4e&#34;&gt;#wine VPinballX.exe&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Run the script and go through each setup.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;For VPX, I installed to the ~/games directory (Z drive to Wine) so that I had quick access to the files but you can install purely inside the prefix (C:/) or elsewhere.&lt;/li&gt;
+&lt;li&gt;The DirectX setup will error out and .Net will report as already installed, this is expected.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;Once all the setups have completed, you can delete/comment the 3 wine/winetricks lines and uncomment the last line. I also run it with &lt;code&gt;gamemoderun&lt;/code&gt; but I didn&amp;rsquo;t personally notice any performance improvements.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If all went well, you should be able to start a table now with ROM included and play without issue.&lt;/p&gt;
+&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+&lt;p&gt;Out of the box, most settings should work as-is. A benefit of Proton is allowing you to run fullscreen-exclusive resolutions without actually changing your display resolution (Something that does not happen smoothly with X11).&lt;/p&gt;
+&lt;p&gt;One setting you may need to disable is &amp;ldquo;Reflect Dynamic Elements on Playfield&amp;rdquo;, which caused numerous visual artifacts for me.&lt;/p&gt;
+&lt;h2 id=&#34;issues&#34;&gt;Issues&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Pressing Escape in-game seems to cause most tables to just crash VPX completely instead of bringing up the little menu. This did &lt;em&gt;not&lt;/em&gt; happen previously for me until this new install.&lt;/li&gt;
+&lt;li&gt;A couple tables do exhibit issues that don&amp;rsquo;t appear on Windows. Namely Guns n Roses has several elements display in pure black, and g5k&amp;rsquo;s Firepower has absolutely awful performance. Vast majority of tables I opened worked fine.&lt;/li&gt;
+&lt;li&gt;I have not tried DirectB2S under Linux and can&amp;rsquo;t comment on that yet. I have DirectB2S disabled in the settings but there&amp;rsquo;s an occasional table that seems to demand using B2S as the controller (So will not start).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I will continue to tweak this as I work through a huge backlog of VPX tables released over the past several months.&lt;br&gt;
+I think virtual pinball on Linux is vastly underrepresented. Maybe we could get a launcher/install script or something thrown together?&lt;/p&gt;
+</description>
+     </item>
    
      <item>
        <title>Old Posts Re-Uploaded</title>
