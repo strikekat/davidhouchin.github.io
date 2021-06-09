@@ -1,0 +1,6 @@
+<figure>
+  <a href="{{ .Get "src" }}" target="_blank">
+    <img style="max-width:{{ .Get "resize" }};max-height:{{ .Get "resize" }};" src="{{ .Get "src" }}" title="{{ .Get "title" }}" alt="{{ .Get "title" }}">
+  </a>
+  <figcaption style="font-size:0.8rem;">{{ .Get "title" }}</figcaption>
+</figure>

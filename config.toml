@@ -1,0 +1,17 @@
+baseURL = "https://davidhouchin.com"
+languageCode = "en-us"
+title = "David Houchin"
+theme = "kiera"
+copyright = "Copyright &copy; 2021 David Houchin"
+
+pygmentsCodefences = true
+pygmentsStyle = "solarized-dark256"
+
+[author]
+    name = "David Houchin"
+    github = "strikekat"
+    linkedin = "david-houchin-07134a88"
+    rss = "https://davidhouchin.com/posts/index.xml"
+
+[services.rss]
+    limit = 20
