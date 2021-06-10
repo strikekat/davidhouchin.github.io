@@ -5,8 +5,7 @@ This site is built with Hugo. To install on Fedora: `sudo dnf install hugo`
 
 To create a new page: `hugo new content/posts/new-post.md`  
 To run a debug server: `hugo server -D`  
-To create a published version in `public/`, just run `hugo`  
-To target a specific folder: `hugo --destination ./publish/`  
+To create a published version, just run `hugo --destination ./docs`  
 **Note** - This does not clear out the folder first, so delete it if you want to remove renamed/old files.
 
 Here is an example static page header (In content/):  
