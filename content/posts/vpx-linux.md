@@ -6,11 +6,15 @@ subtext: 自由
 ---
 
 #### Update
-This guide is fairly out of date and rudimentary. I am hoping to have an updated version on here at some point that does things in a better and more sandboxed way.
+This guide is fairly out of date and rudimentary - There's probably some better guides or lutris/whatever scripts out there by this point, but I will try to update/redo this at some point in the future.
 
-Unfortunately since VPX 10.7, I've personally found VPX to overall be much less stable under Wine with a much higher chance of crashing. Luckily this doesn't seem to happen during actual gameplay, but frequently for me within the editor, loading a new table, and opening the in-game menu.
+For VPX 10.7 and Proton 7.0 - To get this initially running on a clean-ish Fedora 35 install in a basic desktop mode with Keyboard/PS4 controller, I only had to install VPX7setup.exe and `wsh57` with winetricks. DirectB2S did not want to register and doesn't seem to work, but I haven't dug into it much.
 
-I think the only real solution for us non-Windows user will eventually be the Visual Pinball Engine, but until then, I hold out hope we can make the situation with VPX a little better - whether that's a launcher, handy scripts, etc.. (also VPX is probably the thing I'm most excited to throw on my eventual Steam Deck :))
+Unfortunately with VPX 10.7, I have personally found it to be much less stable of an experience than 10.6 and prior. It can be somewhat crash happy, and I get obscure script errors on many tables. A number of tables also exhibit lighting issues, mostly spots on the table being darker than they should or having abrupt dark lines.
+
+With the UI change, I encounter issues like being unable to click or switch the tabs in docked property windows, so I'm completely unable to adjust certain settings on tables - most critically the camera.
+
+I think the only real solution for us non-Windows user will eventually be the Visual Pinball Engine project, but I hope the situation for VPX can get at least a little better before then.
 
 #### Original
 Around a year ago or so, I tackled getting [Visual Pinball running under Linux](https://vpinball.com/forums/topic/visual-pinballx-on-linux/). After a _lot_ of tweaks and debugging, I was able to eventually get pretty good results which is mostly documented there.  
