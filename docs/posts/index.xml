@@ -14,7 +14,12 @@
       <pubDate>Mon, 25 Jan 2021 10:30:08 -0800</pubDate>
       
       <guid>https://davidhouchin.com/posts/vpx-linux/</guid>
-      <description>&lt;p&gt;Around a year ago or so, I tackled getting &lt;a href=&#34;https://vpinball.com/forums/topic/visual-pinballx-on-linux/&#34;&gt;Visual Pinball running under Linux&lt;/a&gt;. After a &lt;em&gt;lot&lt;/em&gt; of tweaks and debugging, I was able to eventually get pretty good results which is mostly documented there.&lt;br&gt;
+      <description>&lt;h4 id=&#34;update&#34;&gt;Update&lt;/h4&gt;
+&lt;p&gt;This guide is fairly out of date and rudimentary. I am hoping to have an updated version on here at some point that does things in a better and more sandboxed way.&lt;/p&gt;
+&lt;p&gt;Unfortunately since VPX 10.7, I&amp;rsquo;ve personally found VPX to overall be much less stable under Wine with a much higher chance of crashing. Luckily this doesn&amp;rsquo;t seem to happen during actual gameplay, but frequently for me within the editor, loading a new table, and opening the in-game menu.&lt;/p&gt;
+&lt;p&gt;I think the only real solution for us non-Windows user will eventually be the Visual Pinball Engine, but until then, I hold out hope we can make the situation with VPX a little better - whether that&amp;rsquo;s a launcher, handy scripts, etc.. (also VPX is probably the thing I&amp;rsquo;m most excited to throw on my eventual Steam Deck :))&lt;/p&gt;
+&lt;h4 id=&#34;original&#34;&gt;Original&lt;/h4&gt;
+&lt;p&gt;Around a year ago or so, I tackled getting &lt;a href=&#34;https://vpinball.com/forums/topic/visual-pinballx-on-linux/&#34;&gt;Visual Pinball running under Linux&lt;/a&gt;. After a &lt;em&gt;lot&lt;/em&gt; of tweaks and debugging, I was able to eventually get pretty good results which is mostly documented there.&lt;br&gt;
 After finally reinstalling a fresh copy of Fedora 33 a couple weeks ago, I setup VPX again and found that things seem to be even simpler than before.&lt;/p&gt;
 &lt;p&gt;Assumptions:&lt;/p&gt;
 &lt;ul&gt;
